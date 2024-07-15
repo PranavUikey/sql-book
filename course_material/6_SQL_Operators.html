@@ -1,0 +1,1395 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Operators &#8212; SQL Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="CRUD Operations" href="7_SQL_CRUD_update%20%20delete%20%20replace.html" />
+    <link rel="prev" title="WHERE Clause" href="5_SQL_where_clause.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">SQL Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_SQL_Installation.html">
+   SQL Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SQL_Data_Types.html">
+   DATA TYPES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_SQL_Create_and_Insert.html">
+   CREATE and INSERT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   Select and Distinct
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Operators
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   Constraints
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-operators">
+   COMPARISON  OPERATORS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equal-to-operator">
+     1. Equal to (=) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-equal-to-operator">
+     2. Not equal to (&lt;&gt;) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#greater-than-operator">
+     3. Greater than (&gt;) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#less-than-or-equal-to-operator">
+     6. Less than or equal to (&lt;=) operator:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-operators">
+   Logical Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AND
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic-operators">
+   Arithmetic Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addition">
+     1. Addition (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subtraction">
+     2. Subtraction (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     3. Multiplication (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       *
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division">
+     4. Division (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulo">
+     5. Modulo (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-operators">
+   String Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concatenation">
+     1. Concatenation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#length-length">
+     2. Length (LENGTH):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#upper-case-upper">
+     3. Upper case (UPPER):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lower-case-lower">
+     4. Lower case (LOWER):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#substring-substring-or-substr">
+     5. Substring (SUBSTRING or SUBSTR):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-null">
+     1. IS NULL:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-not-null">
+     2. IS NOT NULL:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coalesce">
+     3. COALESCE:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullif">
+     4. NULLIF:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inclusion-operators">
+   Inclusion Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-in">
+     2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NOT
+      </span>
+      <span class="pre">
+       IN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#between">
+     3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BETWEEN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-between">
+     4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NOT
+      </span>
+      <span class="pre">
+       BETWEEN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregate-functions-in-sql">
+   AGGREGATE FUNCTIONS IN SQL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count-returns-the-number-of-rows-in-a-group-or-result-set">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       COUNT
+      </span>
+     </code>
+     : Returns the number of rows in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sum-calculates-the-sum-of-a-numeric-column-in-a-group-or-result-set">
+     2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SUM
+      </span>
+     </code>
+     : Calculates the sum of a numeric column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avg-computes-the-average-value-of-a-numeric-column-in-a-group-or-result-set">
+     3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AVG
+      </span>
+     </code>
+     : Computes the average value of a numeric column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#max-returns-the-maximum-value-of-a-column-in-a-group-or-result-set">
+     4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MAX
+      </span>
+     </code>
+     : Returns the maximum value of a column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#min-retrieves-the-minimum-value-of-a-column-in-a-group-or-result-set">
+     5.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MIN
+      </span>
+     </code>
+     : Retrieves the minimum value of a column in a group or result set.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Operators</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#comparison-operators">
+   COMPARISON  OPERATORS
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#equal-to-operator">
+     1. Equal to (=) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-equal-to-operator">
+     2. Not equal to (&lt;&gt;) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#greater-than-operator">
+     3. Greater than (&gt;) operator:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#less-than-or-equal-to-operator">
+     6. Less than or equal to (&lt;=) operator:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logical-operators">
+   Logical Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#and">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AND
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#arithmetic-operators">
+   Arithmetic Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#addition">
+     1. Addition (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       +
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#subtraction">
+     2. Subtraction (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       -
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#multiplication">
+     3. Multiplication (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       *
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#division">
+     4. Division (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       /
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#modulo">
+     5. Modulo (
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       %
+      </span>
+     </code>
+     ):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#string-operators">
+   String Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#concatenation">
+     1. Concatenation:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#length-length">
+     2. Length (LENGTH):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#upper-case-upper">
+     3. Upper case (UPPER):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#lower-case-lower">
+     4. Lower case (LOWER):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#substring-substring-or-substr">
+     5. Substring (SUBSTRING or SUBSTR):
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-null">
+     1. IS NULL:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#is-not-null">
+     2. IS NOT NULL:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coalesce">
+     3. COALESCE:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nullif">
+     4. NULLIF:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#inclusion-operators">
+   Inclusion Operators
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#in">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       IN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-in">
+     2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NOT
+      </span>
+      <span class="pre">
+       IN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#between">
+     3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       BETWEEN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#not-between">
+     4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       NOT
+      </span>
+      <span class="pre">
+       BETWEEN
+      </span>
+     </code>
+     :
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#aggregate-functions-in-sql">
+   AGGREGATE FUNCTIONS IN SQL
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#count-returns-the-number-of-rows-in-a-group-or-result-set">
+     1.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       COUNT
+      </span>
+     </code>
+     : Returns the number of rows in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sum-calculates-the-sum-of-a-numeric-column-in-a-group-or-result-set">
+     2.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       SUM
+      </span>
+     </code>
+     : Calculates the sum of a numeric column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#avg-computes-the-average-value-of-a-numeric-column-in-a-group-or-result-set">
+     3.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       AVG
+      </span>
+     </code>
+     : Computes the average value of a numeric column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#max-returns-the-maximum-value-of-a-column-in-a-group-or-result-set">
+     4.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MAX
+      </span>
+     </code>
+     : Returns the maximum value of a column in a group or result set.
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#min-retrieves-the-minimum-value-of-a-column-in-a-group-or-result-set">
+     5.
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       MIN
+      </span>
+     </code>
+     : Retrieves the minimum value of a column in a group or result set.
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="operators">
+<h1>Operators<a class="headerlink" href="#operators" title="Permalink to this headline">¶</a></h1>
+<p>There are several types of operators in SQL that are used to perform different operations on data. Here are some common types of operators in SQL along with one example of each:</p>
+<ol>
+<li><p>Comparison Operators:</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: Comparison operators such as “&gt;” (greater than), “&lt;” (less than), “=” (equal to), “&lt;&gt;” (not equal to), etc., are used to compare values in a condition.</p></li>
+</ul>
+</li>
+<li><p>Logical Operators:</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: Logical operators such as “AND”, “OR”, and “NOT” are used to combine multiple conditions in a query.</p></li>
+</ul>
+</li>
+<li><p>Arithmetic Operators:</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">increased_salary</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: Arithmetic operators such as “+”, “-“, “*”, and “/” are used to perform mathematical calculations on numeric values in a query.</p></li>
+</ul>
+</li>
+<li><p>String Operators:</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">full_name</span><span class="p">,</span><span class="s1">&#39; &#39;</span><span class="p">,</span><span class="n">last_name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">full_name</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: This function used to manipulate and combine strings in a query.</p></li>
+</ul>
+</li>
+<li><p>Null-Related Operators:</p>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: Null-related operators such as “IS NULL” and “IS NOT NULL” are used to check for null values in a query.</p></li>
+</ul>
+</li>
+<li><p>Inclusion Operators:</p></li>
+</ol>
+<ul class="simple">
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Marketing&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Description: Inclusion operators are used to check if a value exists in a set or a range. These are the operators: “IN”, “BETWEEN”, “LIKE”.</p></li>
+</ul>
+<p>These operators are essential in constructing queries to perform various operations, such as filtering rows, comparing values, combining conditions, performing calculations, and manipulating strings in SQL.</p>
+<p>Let’s look at them individually and in detail.</p>
+<p>We will be using the following table for this chapter: -</p>
+<p><img alt="table1_from_operators%20%282%29.png" src="images/table1_from_operators%20%282%29.png" /></p>
+<div class="section" id="comparison-operators">
+<h2>COMPARISON  OPERATORS<a class="headerlink" href="#comparison-operators" title="Permalink to this headline">¶</a></h2>
+<p>Certainly! Here are the comparison operators in SQL along with examples of each:</p>
+<div class="section" id="equal-to-operator">
+<h3>1. Equal to (=) operator:<a class="headerlink" href="#equal-to-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Description: The equal to operator checks if two values are equal.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="not-equal-to-operator">
+<h3>2. Not equal to (&lt;&gt;) operator:<a class="headerlink" href="#not-equal-to-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Description: The not equal to operator checks if two values are not equal.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">&lt;&gt;</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="greater-than-operator">
+<h3>3. Greater than (&gt;) operator:<a class="headerlink" href="#greater-than-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Description: The greater than operator checks if one value is greater than another.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="w"> </span><span class="k">Less</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="p">(</span><span class="o">&lt;</span><span class="p">)</span><span class="w"> </span><span class="k">operator</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">less</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">less</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="n">another</span><span class="p">.</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="w"> </span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">5</span><span class="p">.</span><span class="w"> </span><span class="n">Greater</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="p">(</span><span class="o">&gt;=</span><span class="p">)</span><span class="w"> </span><span class="k">operator</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">one</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="n">greater</span><span class="w"> </span><span class="k">than</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="n">equal</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">another</span><span class="p">.</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="w"> </span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="less-than-or-equal-to-operator">
+<h3>6. Less than or equal to (&lt;=) operator:<a class="headerlink" href="#less-than-or-equal-to-operator" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Description: The less than or equal to operator checks if one value is less than or equal to another.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">&lt;=</span><span class="w"> </span><span class="mi">40</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">7</span><span class="p">.</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">operator</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="p">(</span><span class="n">missing</span><span class="w"> </span><span class="k">or</span><span class="w"> </span><span class="k">unknown</span><span class="p">).</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="w"> </span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">8</span><span class="p">.</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">operator</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">checks</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">a</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">not</span><span class="w"> </span><span class="k">NULL</span><span class="p">.</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="n">These</span><span class="w"> </span><span class="n">comparison</span><span class="w"> </span><span class="n">operators</span><span class="w"> </span><span class="k">are</span><span class="w"> </span><span class="n">essential</span><span class="w"> </span><span class="k">for</span><span class="w"> </span><span class="n">performing</span><span class="w"> </span><span class="n">comparisons</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="k">SQL</span><span class="w"> </span><span class="n">queries</span><span class="p">.</span><span class="w"> </span><span class="n">They</span><span class="w"> </span><span class="n">allow</span><span class="w"> </span><span class="n">you</span><span class="w"> </span><span class="k">to</span><span class="w"> </span><span class="n">define</span><span class="w"> </span><span class="n">conditions</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">evaluate</span><span class="w"> </span><span class="k">and</span><span class="w"> </span><span class="n">filter</span><span class="w"> </span><span class="k">data</span><span class="w"> </span><span class="n">based</span><span class="w"> </span><span class="k">on</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">relationships</span><span class="w"> </span><span class="k">between</span><span class="w"> </span><span class="k">values</span><span class="w"> </span><span class="k">in</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="k">database</span><span class="p">.</span><span class="w"></span>
+</pre></div>
+</div>
+<p><img alt="table9_from_operators.png" src="../_images/table9_from_operators.png" /></p>
+</div>
+</div>
+<div class="section" id="logical-operators">
+<h2>Logical Operators<a class="headerlink" href="#logical-operators" title="Permalink to this headline">¶</a></h2>
+<p>In SQL, logical operators are used to combine multiple conditions in a query to perform logical operations. Here are the commonly used logical operators in SQL:</p>
+<div class="section" id="and">
+<h3>1.<code class="docutils literal notranslate"> <span class="pre">AND</span></code>:<a class="headerlink" href="#and" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><p>Description: The AND operator returns true if all the conditions separated by AND are true.</p></li>
+<li><p>Example:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">50000</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">2</span><span class="p">.</span><span class="w"> </span><span class="o">`</span><span class="k">OR</span><span class="o">`</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="k">returns</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="k">any</span><span class="w"> </span><span class="k">of</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">conditions</span><span class="w"> </span><span class="n">separated</span><span class="w"> </span><span class="k">by</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">true</span><span class="p">.</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="w"> </span><span class="k">OR</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;Marketing&#39;</span><span class="p">;</span><span class="w"></span>
+<span class="w"> </span><span class="o">```</span><span class="w"></span>
+<span class="o">###</span><span class="w"> </span><span class="mi">3</span><span class="p">.</span><span class="w"> </span><span class="o">`</span><span class="k">NOT</span><span class="o">`</span><span class="p">:</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Description</span><span class="p">:</span><span class="w"> </span><span class="n">The</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">operator</span><span class="w"> </span><span class="n">negates</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="n">that</span><span class="w"> </span><span class="n">follows</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">returning</span><span class="w"> </span><span class="k">true</span><span class="w"> </span><span class="k">if</span><span class="w"> </span><span class="n">the</span><span class="w"> </span><span class="n">condition</span><span class="w"> </span><span class="k">is</span><span class="w"> </span><span class="k">false</span><span class="p">.</span><span class="w"></span>
+<span class="o">-</span><span class="w"> </span><span class="n">Example</span><span class="p">:</span><span class="w"> </span>
+<span class="o">```</span><span class="w"> </span><span class="k">sql</span><span class="w"></span>
+<span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">WHERE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>These logical operators allow you to combine conditions to create more complex and flexible queries. They are useful for filtering data based on multiple criteria and performing logical comparisons in SQL queries.</p>
+<p><img alt="table10_from_operators.png" src="../_images/table10_from_operators.png" /></p>
+<p><img alt="table2_from_operators.png" src="../_images/table2_from_operators.png" /></p>
+</div>
+</div>
+<div class="section" id="arithmetic-operators">
+<h2>Arithmetic Operators<a class="headerlink" href="#arithmetic-operators" title="Permalink to this headline">¶</a></h2>
+<p>Arithmetic operators in SQL are used to perform mathematical operations on the values stored in columns or to combine values together. Let’s explain the arithmetic operators using the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table:</p>
+<p>Assuming we have the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table created and populated with the provided data, here are some examples of arithmetic operations using the table’s columns:</p>
+<div class="section" id="addition">
+<h3>1. Addition (<code class="docutils literal notranslate"><span class="pre">+</span></code>):<a class="headerlink" href="#addition" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">+</span><span class="w"> </span><span class="mi">1000</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">increased_salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query adds 1000 to the <code class="docutils literal notranslate"><span class="pre">salary</span></code> column for each employee and returns the result as <code class="docutils literal notranslate"><span class="pre">increased_salary</span></code>.</p>
+</div>
+<div class="section" id="subtraction">
+<h3>2. Subtraction (<code class="docutils literal notranslate"><span class="pre">-</span></code>):<a class="headerlink" href="#subtraction" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="mi">5000</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">decreased_salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query subtracts 5000 from the <code class="docutils literal notranslate"><span class="pre">salary</span></code> column for each employee and returns the result as <code class="docutils literal notranslate"><span class="pre">decreased_salary</span></code>.</p>
+</div>
+<div class="section" id="multiplication">
+<h3>3. Multiplication (<code class="docutils literal notranslate"><span class="pre">*</span></code>):<a class="headerlink" href="#multiplication" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bonus_amount</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query multiplies the <code class="docutils literal notranslate"><span class="pre">salary</span></code> column by 0.1 (10%) for each employee and returns the result as <code class="docutils literal notranslate"><span class="pre">bonus_amount</span></code>.</p>
+</div>
+<div class="section" id="division">
+<h3>4. Division (<code class="docutils literal notranslate"><span class="pre">/</span></code>):<a class="headerlink" href="#division" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_per_age</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query divides the <code class="docutils literal notranslate"><span class="pre">salary</span></code> column by the <code class="docutils literal notranslate"><span class="pre">age</span></code> column for each employee and returns the result as <code class="docutils literal notranslate"><span class="pre">salary_per_age</span></code>.</p>
+</div>
+<div class="section" id="modulo">
+<h3>5. Modulo (<code class="docutils literal notranslate"><span class="pre">%</span></code>):<a class="headerlink" href="#modulo" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="o">%</span><span class="w"> </span><span class="mi">10</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">remainder</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query calculates the remainder of dividing the <code class="docutils literal notranslate"><span class="pre">age</span></code> column by 10 for each employee and returns the result as <code class="docutils literal notranslate"><span class="pre">remainder</span></code>.</p>
+<p>These are just a few examples of how arithmetic operators can be used in SQL queries. You can combine arithmetic operators with other SQL clauses and functions to perform complex calculations and derive meaningful insights from the data in the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table.</p>
+<p><img alt="table3_from_operators.png" src="../_images/table3_from_operators.png" /></p>
+</div>
+</div>
+<div class="section" id="string-operators">
+<h2>String Operators<a class="headerlink" href="#string-operators" title="Permalink to this headline">¶</a></h2>
+<p>String operators in SQL are used to perform operations on string values. Let’s use the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table to provide examples of string operators:</p>
+<p>Assuming we have the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table created and populated with the provided data, here are some examples of string operations using the table’s columns:</p>
+<div class="section" id="concatenation">
+<h3>1. Concatenation:<a class="headerlink" href="#concatenation" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">CONCAT</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;,&#39;</span><span class="p">,</span><span class="n">department</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">employee_info</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query concatenates the <code class="docutils literal notranslate"><span class="pre">name</span></code> column, a comma, and the <code class="docutils literal notranslate"><span class="pre">department</span></code> column for each employee, resulting in the combined string as <code class="docutils literal notranslate"><span class="pre">employee_info</span></code>.</p>
+</div>
+<div class="section" id="length-length">
+<h3>2. Length (LENGTH):<a class="headerlink" href="#length-length" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">LENGTH</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">name_length</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the <code class="docutils literal notranslate"><span class="pre">name</span></code> column and calculates the length of each name using the <code class="docutils literal notranslate"><span class="pre">LENGTH</span></code> function, returning the result as <code class="docutils literal notranslate"><span class="pre">name_length</span></code>.</p>
+</div>
+<div class="section" id="upper-case-upper">
+<h3>3. Upper case (UPPER):<a class="headerlink" href="#upper-case-upper" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">UPPER</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">uppercase_name</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the <code class="docutils literal notranslate"><span class="pre">name</span></code> column and converts each name to uppercase using the <code class="docutils literal notranslate"><span class="pre">UPPER</span></code> function, returning the result as <code class="docutils literal notranslate"><span class="pre">uppercase_name</span></code>.</p>
+</div>
+<div class="section" id="lower-case-lower">
+<h3>4. Lower case (LOWER):<a class="headerlink" href="#lower-case-lower" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="k">LOWER</span><span class="p">(</span><span class="n">name</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">lowercase_name</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the <code class="docutils literal notranslate"><span class="pre">name</span></code> column and converts each name to lowercase using the <code class="docutils literal notranslate"><span class="pre">LOWER</span></code> function, returning the result as <code class="docutils literal notranslate"><span class="pre">lowercase_name</span></code>.</p>
+</div>
+<div class="section" id="substring-substring-or-substr">
+<h3>5. Substring (SUBSTRING or SUBSTR):<a class="headerlink" href="#substring-substring-or-substr" title="Permalink to this headline">¶</a></h3>
+<p>The substring function is used to extract a portion of a string based on a specified starting position and length.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUBSTRING</span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">initials</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the first three characters from the <code class="docutils literal notranslate"><span class="pre">name</span></code> column for each employee, returning the result as <code class="docutils literal notranslate"><span class="pre">initials</span></code>.</p>
+<p>These are some of the string operators commonly used in SQL. They can be combined with other SQL clauses and functions to manipulate and analyze string data effectively.</p>
+<p>These are just a few examples of how string operators can be used in SQL queries. You can combine string operators with other SQL clauses and functions to manipulate and transform string values based on your requirements.</p>
+<p><img alt="table4_from_operators.png" src="../_images/table4_from_operators.png" /></p>
+<p>In SQL, there are specific operators and functions used to handle NULL values. Here are some commonly used NULL-related operators in SQL:</p>
+</div>
+<div class="section" id="is-null">
+<h3>1. IS NULL:<a class="headerlink" href="#is-null" title="Permalink to this headline">¶</a></h3>
+<p>The IS NULL operator is used to check if a value is NULL.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">department</span></code> column contains NULL values.</p>
+</div>
+<div class="section" id="is-not-null">
+<h3>2. IS NOT NULL:<a class="headerlink" href="#is-not-null" title="Permalink to this headline">¶</a></h3>
+<p>The IS NOT NULL operator is used to check if a value is not NULL.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IS</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">department</span></code> column does not contain NULL values.</p>
+</div>
+<div class="section" id="coalesce">
+<h3>3. COALESCE:<a class="headerlink" href="#coalesce" title="Permalink to this headline">¶</a></h3>
+<p>The COALESCE function is used to return the first non-NULL value in a list of expressions.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COALESCE</span><span class="p">(</span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Unknown&#39;</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">department</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the <code class="docutils literal notranslate"><span class="pre">department</span></code> column from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table. If the value is NULL, it is replaced with the string ‘Unknown’ using the COALESCE function.</p>
+</div>
+<div class="section" id="nullif">
+<h3>4. NULLIF:<a class="headerlink" href="#nullif" title="Permalink to this headline">¶</a></h3>
+<p>The NULLIF function is used to compare two expressions and return NULL if they are equal.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">NULLIF</span><span class="p">(</span><span class="n">salary</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves the <code class="docutils literal notranslate"><span class="pre">salary</span></code> column from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table. If the value is 0, it is replaced with NULL using the NULLIF function.</p>
+<p>These NULL-related operators and functions provide ways to handle and manipulate NULL values in SQL queries, allowing you to filter, replace, or compare NULL values as needed.</p>
+<p><img alt="table5_from_operators.png" src="../_images/table5_from_operators.png" /></p>
+</div>
+</div>
+<div class="section" id="inclusion-operators">
+<h2>Inclusion Operators<a class="headerlink" href="#inclusion-operators" title="Permalink to this headline">¶</a></h2>
+<p>In SQL, there are several inclusion operators that allow you to check if a value is included in a specific set of values or a range. Here are some commonly used inclusion operators in SQL:</p>
+<div class="section" id="in">
+<h3>1.<code class="docutils literal notranslate"><span class="pre">IN</span></code>:<a class="headerlink" href="#in" title="Permalink to this headline">¶</a></h3>
+<p>The IN operator is used to check if a value is included in a list of values.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;HR&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;IT&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">department</span></code> column is either ‘HR’ or ‘IT’.</p>
+</div>
+<div class="section" id="not-in">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">IN</span></code>:<a class="headerlink" href="#not-in" title="Permalink to this headline">¶</a></h3>
+<p>The NOT IN operator is used to check if a value is not included in a list of values.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">department</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="s1">&#39;Sales&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Marketing&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">department</span></code> column is neither ‘Sales’ nor ‘Marketing’.</p>
+</div>
+<div class="section" id="between">
+<h3>3. <code class="docutils literal notranslate"><span class="pre">BETWEEN</span></code>:<a class="headerlink" href="#between" title="Permalink to this headline">¶</a></h3>
+<p>The BETWEEN operator is used to check if a value is within a specified range (inclusive).
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">age</span></code> column is between 30 and 35.</p>
+</div>
+<div class="section" id="not-between">
+<h3>4. <code class="docutils literal notranslate"><span class="pre">NOT</span> <span class="pre">BETWEEN</span></code>:<a class="headerlink" href="#not-between" title="Permalink to this headline">¶</a></h3>
+<p>The NOT BETWEEN operator is used to check if a value is not within a specified range.
+Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">age</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">BETWEEN</span><span class="w"> </span><span class="mi">30</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="mi">35</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>This query retrieves all rows from the <code class="docutils literal notranslate"><span class="pre">employees</span></code> table where the <code class="docutils literal notranslate"><span class="pre">age</span></code> column is not between 30 and 35.</p>
+<p>These inclusion operators provide flexibility in querying data based on whether values are included in a set or range. You can use them to filter and retrieve specific rows from the table based on your criteria.</p>
+<p><img alt="table6_from_operators.png" src="../_images/table6_from_operators.png" /></p>
+</div>
+</div>
+<div class="section" id="aggregate-functions-in-sql">
+<h2>AGGREGATE FUNCTIONS IN SQL<a class="headerlink" href="#aggregate-functions-in-sql" title="Permalink to this headline">¶</a></h2>
+<p>Aggregate functions in SQL are used to perform calculations on a set of values and return a single result. These functions operate on a group of rows specified by the GROUP BY clause or on the entire result set if no GROUP BY clause is used. Here are some commonly used aggregate functions in SQL:</p>
+<div class="section" id="count-returns-the-number-of-rows-in-a-group-or-result-set">
+<h3>1. <code class="docutils literal notranslate"><span class="pre">COUNT</span></code>: Returns the number of rows in a group or result set.<a class="headerlink" href="#count-returns-the-number-of-rows-in-a-group-or-result-set" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_employees</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sum-calculates-the-sum-of-a-numeric-column-in-a-group-or-result-set">
+<h3>2. <code class="docutils literal notranslate"><span class="pre">SUM</span></code>: Calculates the sum of a numeric column in a group or result set.<a class="headerlink" href="#sum-calculates-the-sum-of-a-numeric-column-in-a-group-or-result-set" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="avg-computes-the-average-value-of-a-numeric-column-in-a-group-or-result-set">
+<h3>3. <code class="docutils literal notranslate"><span class="pre">AVG</span></code>: Computes the average value of a numeric column in a group or result set.<a class="headerlink" href="#avg-computes-the-average-value-of-a-numeric-column-in-a-group-or-result-set" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">average_age</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="max-returns-the-maximum-value-of-a-column-in-a-group-or-result-set">
+<h3>4. <code class="docutils literal notranslate"><span class="pre">MAX</span></code>: Returns the maximum value of a column in a group or result set.<a class="headerlink" href="#max-returns-the-maximum-value-of-a-column-in-a-group-or-result-set" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MAX</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">max_salary</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="min-retrieves-the-minimum-value-of-a-column-in-a-group-or-result-set">
+<h3>5. <code class="docutils literal notranslate"><span class="pre">MIN</span></code>: Retrieves the minimum value of a column in a group or result set.<a class="headerlink" href="#min-retrieves-the-minimum-value-of-a-column-in-a-group-or-result-set" title="Permalink to this headline">¶</a></h3>
+<p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">MIN</span><span class="p">(</span><span class="n">age</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">min_age</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>These are just a few examples of aggregate functions in SQL. There are other aggregate functions available, such as SUM, COUNT, AVG, MAX, and MIN, which can be used to perform various calculations on data sets. Aggregate functions are helpful for summarizing data and deriving insights from large datasets.</p>
+<p><img alt="table1_from_sql4.png" src="../_images/table1_from_sql4.png" /></p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="theory-questions">
+<h3>Theory Questions:<a class="headerlink" href="#theory-questions" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>What is the purpose of the “IS NULL” operator in SQL? Provide an example query using this operator.</p></li>
+<li><p>Explain the difference between the “=” operator and the “&lt;&gt;” operator in SQL with examples.</p></li>
+<li><p>What is the role of logical operators in SQL queries? Provide a scenario where you would use the “AND” operator.</p></li>
+<li><p>Explain the difference between the “AND” and “OR” operators in SQL. Provide an example query using both operators.</p></li>
+<li><p>In what situations would you use parentheses to group conditions when using logical operators?</p></li>
+<li><p>Describe the “MODULO” operator and provide an example query that uses it.</p></li>
+<li><p>What are string operators in SQL, and how are they used? Provide an example query that uses the “||” concatenation operator.</p></li>
+<li><p>How can you convert all characters in a string column to uppercase using a string operator? Provide an example query.</p></li>
+<li><p>In what situations would you use the “SUBSTRING” function, and how does it work? Provide an example query.</p></li>
+<li><p>How do null-related operators in SQL help in handling NULL values? Provide an example query that uses the “IS NOT NULL” operator.</p></li>
+<li><p>Explain the concept of using the “COALESCE” function to handle NULL values in a query. Provide an example query using this function.</p></li>
+<li><p>What is the purpose of inclusion operators in SQL? Provide an example query that uses the “IN” operator.</p></li>
+<li><p>Explain the difference between the “BETWEEN” operator and the “IN” operator in terms of usage and scenarios.</p></li>
+<li><p>How do aggregate functions differ from analytic functions in SQL? Provide examples of scenarios where you would use each type of function.</p></li>
+</ol>
+<p><strong>Table for questions:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">quantity</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">category</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">added_on</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="n">quantity</span><span class="p">,</span><span class="w"> </span><span class="n">category</span><span class="p">,</span><span class="w"> </span><span class="n">added_on</span><span class="p">)</span><span class="w"></span>
+<span class="k">VALUES</span><span class="w"> </span>
+<span class="p">(</span><span class="s1">&#39;Smartphone&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">299</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Laptop&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">799</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">80</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2022-12-01&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Bluetooth Speaker&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">149</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-25&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Organic Apples&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">4</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Food&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-10&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Chocolate Bar&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Food&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-01&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;LED Monitor&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">129</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">120</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-20&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Gaming Mouse&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">59</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-18&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Water Bottle&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">19</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">60</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sports&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-05&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Sports Shoes&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">99</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">40</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sports&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2022-11-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Backpack&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">49</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">150</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Accessories&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-22&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Earbuds&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">89</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">110</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-05&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;Portable Charger&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">39</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-12&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="s1">&#39;VR Headset&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">299</span><span class="p">.</span><span class="mi">99</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electronics&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-28&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coding-questions">
+<h3>Coding Questions:<a class="headerlink" href="#coding-questions" title="Permalink to this headline">¶</a></h3>
+<p>Q. Find all products.</p>
+<p>Q. List the names of all products.</p>
+<p>Q. Find products with a price greater than 100.</p>
+<p>Q. Count the total number of products.</p>
+<p>Q. Find products in the ‘Electronics’ category.</p>
+<p>Q. List the name and price of each product.</p>
+<p>Q. Find products added after January 1, 2023.</p>
+<p>Q. Find products with quantity less than 50.</p>
+<p>Q. List all product categories.</p>
+<p>Q. Find the name of products with ‘Gadget’ in their name.</p>
+<p>Q. Find products with a price between 50 and 150.</p>
+<p>Q. List products with a quantity greater than 100, sorted by quantity.</p>
+<p>Q. Find the average price of products.</p>
+<p>Q. List the top 5 most expensive products.</p>
+<p>Q. Find the total quantity of products in the ‘Food’ category.</p>
+<p>Q. List products with prices increased by 10%.</p>
+<p>Q. Find products added in the last 30 days.</p>
+<p>Q. List the names of products with more than 100 characters in their name.</p>
+<p>Q. Find the minimum and maximum price in category.</p>
+<p>Q. Calculate the total quantity of products whose names start with a vowel.</p>
+<p>Q. Find products that do not fall within the price range of <span class="math notranslate nohighlight">\(10 to \)</span>300.</p>
+<p>Q. List all products that do not have ‘Sports’ in their category and have a price over $100.</p>
+<p>Q. Find the difference between the highest and lowest prices of the products.</p>
+<p>Q. Display the name and a 15% increased price for each product.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="5_SQL_where_clause.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">WHERE Clause</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="7_SQL_CRUD_update%20%20delete%20%20replace.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">CRUD Operations</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2024.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

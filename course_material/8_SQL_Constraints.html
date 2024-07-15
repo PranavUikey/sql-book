@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SQL Constrains &#8212; Python Course</title>
+    <title>Constraints &#8212; SQL Course</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="TABLE MANIPULATIONS in SQL" href="9_SQL_Table_manipulations.html" />
-    <link rel="prev" title="CRUD Operations:" href="7_SQL_CRUD_update%20%20delete%20%20replace.html" />
+    <link rel="next" title="TABLE MANIPULATIONS" href="9_SQL_Table_manipulations.html" />
+    <link rel="prev" title="CRUD Operations" href="7_SQL_CRUD_update%20%20delete%20%20replace.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo_com.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Python Course</h1>
+      <h1 class="site-logo" id="site-title">SQL Course</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -93,33 +93,48 @@ const thebe_selector_output = ".output, .cell_output"
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
+  <a class="reference internal" href="1_SQL_Installation.html">
+   SQL Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SQL_Data_Types.html">
+   DATA TYPES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_SQL_Create_and_Insert.html">
+   CREATE and INSERT
+  </a>
+ </li>
+ <li class="toctree-l1">
   <a class="reference internal" href="4_SQL_Select_Distinct.html">
-   SQL SELECT AND FROM :
+   Select and Distinct
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="5_SQL_where_clause.html">
-   SQL WHERE Clause
+   WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_SQL_Operators.html">
+   Operators
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
-   CRUD Operations:
+   CRUD Operations
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   SQL Constrains
+   Constraints
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_SQL_Table_manipulations.html">
-   TABLE MANIPULATIONS in SQL
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
-   Order of execution of query
+   TABLE MANIPULATIONS
   </a>
  </li>
  <li class="toctree-l1">
@@ -134,12 +149,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_SQL_JOINS.html">
-   SQL JOINS
+   JOINS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="13_SQL_UNION.html">
-   SQL UNION
+   UNION
   </a>
  </li>
  <li class="toctree-l1">
@@ -279,7 +294,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SQL Constrains</h1>
+                <h1>Constraints</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -361,8 +376,8 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sql-constrains">
-<h1>SQL Constrains<a class="headerlink" href="#sql-constrains" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="constraints">
+<h1>Constraints<a class="headerlink" href="#constraints" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="what-are-sql-constraints">
 <h2>What are SQL CONSTRAINTS?<a class="headerlink" href="#what-are-sql-constraints" title="Permalink to this headline">¶</a></h2>
 <p>SQL constraints are rules and conditions applied to columns or tables in a relational database to enforce data integrity and maintain the accuracy, consistency, and validity of the stored data. Constraints ensure that the data stored in the database meets certain predefined criteria, preventing the insertion of incorrect or inconsistent data. They play a crucial role in maintaining data quality and preventing data anomalies.</p>
@@ -628,13 +643,13 @@ const thebe_selector_output = ".output, .cell_output"
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">CRUD Operations:</p>
+            <p class="prev-next-title">CRUD Operations</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="9_SQL_Table_manipulations.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">TABLE MANIPULATIONS in SQL</p>
+        <p class="prev-next-title">TABLE MANIPULATIONS</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -647,7 +662,7 @@ const thebe_selector_output = ".output, .cell_output"
     
       By aiadventures<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2024.<br/>
   </p>
 </footer>
 </main>

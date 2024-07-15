@@ -5,7 +5,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SQL SELECT AND FROM : &#8212; Python Course</title>
+    <title>Select and Distinct &#8212; SQL Course</title>
     
   <link href="../_static/css/theme.css" rel="stylesheet">
   <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
@@ -53,8 +53,8 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="SQL WHERE Clause" href="5_SQL_where_clause.html" />
-    <link rel="prev" title="SQL Introduction" href="0_SQL_Introduction.html" />
+    <link rel="next" title="WHERE Clause" href="5_SQL_where_clause.html" />
+    <link rel="prev" title="CREATE and INSERT" href="3_SQL_Create_and_Insert.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -83,7 +83,7 @@ const thebe_selector_output = ".output, .cell_output"
       <img src="../_static/logo_com.png" class="logo" alt="logo">
       
       
-      <h1 class="site-logo" id="site-title">Python Course</h1>
+      <h1 class="site-logo" id="site-title">SQL Course</h1>
       
     </a>
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
@@ -92,34 +92,49 @@ const thebe_selector_output = ".output, .cell_output"
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="1_SQL_Installation.html">
+   SQL Installation
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="2_SQL_Data_Types.html">
+   DATA TYPES
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="3_SQL_Create_and_Insert.html">
+   CREATE and INSERT
+  </a>
+ </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   SQL SELECT AND FROM :
+   Select and Distinct
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="5_SQL_where_clause.html">
-   SQL WHERE Clause
+   WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="6_SQL_Operators.html">
+   Operators
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
-   CRUD Operations:
+   CRUD Operations
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="8_SQL_Constraints.html">
-   SQL Constrains
+   Constraints
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="9_SQL_Table_manipulations.html">
-   TABLE MANIPULATIONS in SQL
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
-   Order of execution of query
+   TABLE MANIPULATIONS
   </a>
  </li>
  <li class="toctree-l1">
@@ -134,12 +149,12 @@ const thebe_selector_output = ".output, .cell_output"
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="12_SQL_JOINS.html">
-   SQL JOINS
+   JOINS
   </a>
  </li>
  <li class="toctree-l1">
   <a class="reference internal" href="13_SQL_UNION.html">
-   SQL UNION
+   UNION
   </a>
  </li>
  <li class="toctree-l1">
@@ -206,72 +221,70 @@ const thebe_selector_output = ".output, .cell_output"
             </div>
             <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   SQL SELECT AND FROM :
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-select-and-from">
+   SQL SELECT AND FROM
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sql-aliases">
-     SQL ALIASES
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-aliases">
+   SQL ALIASES
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-aliases">
+     1.
+     <strong>
+      Column Aliases:
+     </strong>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#column-aliases">
-       1.
-       <strong>
-        Column Aliases:
-       </strong>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#table-aliases">
-       2.
-       <strong>
-        Table Aliases:
-       </strong>
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-aliases">
+     2.
+     <strong>
+      Table Aliases:
+     </strong>
+    </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distinct-keyword">
    DISTINCT KEYWORD
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-distinct-keyword">
      What is DISTINCT keyword?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-is-distinct-keyword-used">
      How is DISTINCT keyword used?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-does-distinct-keyword-work">
      How does DISTINCT keyword work?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise">
-     Exercise
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory questions:
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#theory-questions">
-       Theory questions:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coding-questions">
-       Coding Questions:
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
    </li>
   </ul>
  </li>
@@ -285,7 +298,7 @@ const thebe_selector_output = ".output, .cell_output"
         <div class="col-12 col-md-9 pl-md-3 pr-md-0">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>SQL SELECT AND FROM :</h1>
+                <h1>Select and Distinct</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -295,72 +308,70 @@ const thebe_selector_output = ".output, .cell_output"
                         </div>
                         <nav aria-label="Page">
                             <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   SQL SELECT AND FROM :
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-select-and-from">
+   SQL SELECT AND FROM
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#sql-aliases">
-     SQL ALIASES
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-aliases">
+   SQL ALIASES
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#column-aliases">
+     1.
+     <strong>
+      Column Aliases:
+     </strong>
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#column-aliases">
-       1.
-       <strong>
-        Column Aliases:
-       </strong>
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#table-aliases">
-       2.
-       <strong>
-        Table Aliases:
-       </strong>
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#table-aliases">
+     2.
+     <strong>
+      Table Aliases:
+     </strong>
+    </a>
    </li>
   </ul>
  </li>
- <li class="toc-h1 nav-item toc-entry">
+ <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#distinct-keyword">
    DISTINCT KEYWORD
   </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#what-is-distinct-keyword">
      What is DISTINCT keyword?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-is-distinct-keyword-used">
      How is DISTINCT keyword used?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
+   <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#how-does-distinct-keyword-work">
      How does DISTINCT keyword work?
     </a>
    </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#exercise">
-     Exercise
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory questions:
     </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#theory-questions">
-       Theory questions:
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#coding-questions">
-       Coding Questions:
-      </a>
-     </li>
-    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
    </li>
   </ul>
  </li>
@@ -373,8 +384,10 @@ const thebe_selector_output = ".output, .cell_output"
             
               <div>
                 
-  <div class="tex2jax_ignore mathjax_ignore section" id="sql-select-and-from">
-<h1>SQL SELECT AND FROM :<a class="headerlink" href="#sql-select-and-from" title="Permalink to this headline">¶</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="select-and-distinct">
+<h1>Select and Distinct<a class="headerlink" href="#select-and-distinct" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="sql-select-and-from">
+<h2>SQL SELECT AND FROM<a class="headerlink" href="#sql-select-and-from" title="Permalink to this headline">¶</a></h2>
 <p>In SQL, the <strong>SELECT</strong> and <strong>FROM</strong> clauses are fundamental components of a query used to retrieve data from a database table.</p>
 <ol class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>: The <strong>SELECT</strong> clause is used to specify the columns or expressions that you want to include in the query result. It determines which data will be retrieved from the table. You can select specific columns by mentioning their names, or you can use wildcard characters (such as *) to select all columns.</p></li>
@@ -407,7 +420,10 @@ const thebe_selector_output = ".output, .cell_output"
 <p>By specifying the desired columns in the SELECT clause, you can control which data is retrieved from the table, allowing you to focus on specific information as needed.</p>
 <p><img alt="table3_from_select.png" src="../_images/table3_from_select.png" /></p>
 <p>SQL (Structured Query Language) is generally not case-sensitive, which means it doesn’t distinguish between uppercase and lowercase letters in keywords and function names. This characteristic applies to the SQL language itself, including commands, clauses, and function names. For example, the keywords SELECT, select, and SeLeCt are considered the same by most SQL databases.</p>
-<p><code class="docutils literal notranslate"><span class="pre">{note}</span> <span class="pre">`SELECT`</span> <span class="pre">statements</span> <span class="pre">are</span> <span class="pre">**not</span> <span class="pre">case-sensitive**</span> <span class="pre">so</span> <span class="pre">we</span> <span class="pre">can</span> <span class="pre">also</span> <span class="pre">write.</span></code></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code> statements are <strong>not case-sensitive</strong> so we can also write.</p>
+</div>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">select</span><span class="w"> </span><span class="n">name</span><span class="w"> </span><span class="k">from</span><span class="w"> </span><span class="n">cities</span><span class="p">;</span><span class="w"></span>
 </pre></div>
 </div>
@@ -419,6 +435,7 @@ const thebe_selector_output = ".output, .cell_output"
 </pre></div>
 </div>
 <p>But convention is to use upper case letters for keywords to differentiate from other text.</p>
+</div>
 <div class="section" id="sql-aliases">
 <h2>SQL ALIASES<a class="headerlink" href="#sql-aliases" title="Permalink to this headline">¶</a></h2>
 <p><strong>SQL Aliases</strong> are used to provide temporary alternative names for columns or tables in a SQL query. They make the query more readable and concise by assigning shorter or more meaningful names to columns or tables.</p>
@@ -464,11 +481,10 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 </div>
 </div>
-</div>
-<div class="tex2jax_ignore mathjax_ignore section" id="distinct-keyword">
-<h1>DISTINCT KEYWORD<a class="headerlink" href="#distinct-keyword" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="distinct-keyword">
+<h2>DISTINCT KEYWORD<a class="headerlink" href="#distinct-keyword" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="what-is-distinct-keyword">
-<h2>What is DISTINCT keyword?<a class="headerlink" href="#what-is-distinct-keyword" title="Permalink to this headline">¶</a></h2>
+<h3>What is DISTINCT keyword?<a class="headerlink" href="#what-is-distinct-keyword" title="Permalink to this headline">¶</a></h3>
 <p>In SQL, the DISTINCT keyword is used in a SELECT statement to retrieve unique values from a column or a combination of columns in a table. It eliminates duplicate rows from the result set, returning only distinct or unique values.</p>
 <p>Here are some key points about the DISTINCT keyword:</p>
 <ul class="simple">
@@ -480,7 +496,7 @@ const thebe_selector_output = ".output, .cell_output"
 </ul>
 </div>
 <div class="section" id="how-is-distinct-keyword-used">
-<h2>How is DISTINCT keyword used?<a class="headerlink" href="#how-is-distinct-keyword-used" title="Permalink to this headline">¶</a></h2>
+<h3>How is DISTINCT keyword used?<a class="headerlink" href="#how-is-distinct-keyword-used" title="Permalink to this headline">¶</a></h3>
 <p>The syntax for using the DISTINCT keyword in SQL is as follows:</p>
 <div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="k">DISTINCT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
 <span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"></span>
@@ -501,11 +517,14 @@ const thebe_selector_output = ".output, .cell_output"
 </div>
 <p>This query will return a list of distinct categories from the “category” column of the “products” table.</p>
 <p>Remember that the DISTINCT keyword applies to the entire selected row, not just a specific column. It filters out duplicate rows based on the values of the specified columns, returning only unique combinations of values.</p>
-<p>Note: The DISTINCT keyword is not applicable to individual columns within a row. It considers all selected columns together while determining uniqueness.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The <code class="docutils literal notranslate"><span class="pre">DISTINCT</span></code> keyword is not applicable to individual columns within a row. It considers all selected columns together while determining uniqueness.</p>
+</div>
 <p>In summary, the DISTINCT keyword is used in SQL to obtain unique values from one or more columns in a table. It helps eliminate duplicate rows in the result set and is often used to retrieve unique or distinct values for analysis or reporting purposes.</p>
 </div>
 <div class="section" id="how-does-distinct-keyword-work">
-<h2>How does DISTINCT keyword work?<a class="headerlink" href="#how-does-distinct-keyword-work" title="Permalink to this headline">¶</a></h2>
+<h3>How does DISTINCT keyword work?<a class="headerlink" href="#how-does-distinct-keyword-work" title="Permalink to this headline">¶</a></h3>
 <p>Here’s how the DISTINCT keyword works:</p>
 <ol class="simple">
 <li><p>The SELECT statement retrieves data from one or more columns of a table.</p></li>
@@ -523,6 +542,7 @@ const thebe_selector_output = ".output, .cell_output"
 <p>The database engine will evaluate the values in the “department” column for each row. It will eliminate duplicate rows and return only the unique department values present in the table.</p>
 <p>In summary, the DISTINCT keyword helps to filter out duplicate rows and retrieve only unique values from the specified columns in the result set.</p>
 <p><img alt="table3_from_sql5.png" src="../_images/table3_from_sql5.png" /></p>
+</div>
 </div>
 <div class="section" id="exercise">
 <h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
@@ -613,17 +633,17 @@ const thebe_selector_output = ".output, .cell_output"
             
                 <!-- Previous / next buttons -->
 <div class='prev-next-area'> 
-    <a class='left-prev' id="prev-link" href="0_SQL_Introduction.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="3_SQL_Create_and_Insert.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">SQL Introduction</p>
+            <p class="prev-next-title">CREATE and INSERT</p>
         </div>
     </a>
     <a class='right-next' id="next-link" href="5_SQL_where_clause.html" title="next page">
     <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">SQL WHERE Clause</p>
+        <p class="prev-next-title">WHERE Clause</p>
     </div>
     <i class="fas fa-angle-right"></i>
     </a>
@@ -636,7 +656,7 @@ const thebe_selector_output = ".output, .cell_output"
     
       By aiadventures<br/>
     
-        &copy; Copyright 2021.<br/>
+        &copy; Copyright 2024.<br/>
   </p>
 </footer>
 </main>
