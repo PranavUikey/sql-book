@@ -1,0 +1,715 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TABLE MANIPULATIONS in SQL &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Order of execution of query" href="10.1_SQL_%28execution_order%29.html" />
+    <link rel="prev" title="SQL Constrains" href="8_SQL_Constraints.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-tables">
+   1.
+   <strong>
+    Creating Tables
+   </strong>
+   :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#altering-tables">
+   2. Altering Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dropping-tables">
+   3. Dropping Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renaming-tables">
+   4. Renaming Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#truncating-tables">
+   5. Truncating Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory">
+     Theory:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>TABLE MANIPULATIONS in SQL</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#creating-tables">
+   1.
+   <strong>
+    Creating Tables
+   </strong>
+   :
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#altering-tables">
+   2. Altering Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#dropping-tables">
+   3. Dropping Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#renaming-tables">
+   4. Renaming Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#truncating-tables">
+   5. Truncating Tables:
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory">
+     Theory:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="table-manipulations-in-sql">
+<h1>TABLE MANIPULATIONS in SQL<a class="headerlink" href="#table-manipulations-in-sql" title="Permalink to this headline">¶</a></h1>
+<p><strong>Table manipulations</strong> refer to the operations performed on database tables to modify their structure or contents.</p>
+<p><strong>Table manipulations</strong> are performed using SQL (Structured Query Language), which is a powerful language designed to manage relational databases. These operations allow database administrators and developers to design and maintain the database schema, ensure data integrity, and perform various data manipulation tasks to meet application requirements. <strong>Table manipulations</strong> are fundamental for efficient data organization, retrieval, and maintenance in a relational database system.</p>
+<p>These operations are essential for managing and organizing data in a database. Some common table manipulations include:</p>
+<ol class="simple">
+<li><p><strong>Creating Tables</strong>: The process of defining a new table with its columns, data types, and constraints.</p></li>
+<li><p><strong>Altering Tables</strong>: Modifying the structure of an existing table, such as adding or dropping columns, changing column data types, or adding constraints.</p></li>
+<li><p><strong>Dropping Tables</strong>: Deleting an entire table and its data from the database.</p></li>
+<li><p><strong>Renaming Tables</strong>: Changing the name of an existing table.</p></li>
+<li><p><strong>Truncating Tables</strong>: Removing all data from a table without deleting the table structure.</p></li>
+</ol>
+<p>Let’s look at each of them individually.</p>
+<div class="section" id="creating-tables">
+<h2>1. <strong>Creating Tables</strong> :<a class="headerlink" href="#creating-tables" title="Permalink to this headline">¶</a></h2>
+<p>In SQL (Structured Query Language), the <code class="docutils literal notranslate"><span class="pre">&quot;CREATE</span> <span class="pre">TABLE&quot;</span></code> statement is used to create a new table in a relational database. A table is a fundamental component of a database that stores data in a structured manner, resembling a spreadsheet with rows and columns. When creating a table, you define the table’s structure by specifying the column names, data types, and optional constraints for each column.</p>
+<p>The syntax for the “CREATE TABLE” statement is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">column1</span><span class="w"> </span><span class="n">data_type1</span><span class="w"> </span><span class="p">[</span><span class="k">constraints</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="n">column2</span><span class="w"> </span><span class="n">data_type2</span><span class="w"> </span><span class="p">[</span><span class="k">constraints</span><span class="p">],</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="n">columnN</span><span class="w"> </span><span class="n">data_typeN</span><span class="w"> </span><span class="p">[</span><span class="k">constraints</span><span class="p">]</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Let’s break down the components of the “CREATE TABLE” statement:</p>
+<ol class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">CREATE</span> <span class="pre">TABLE</span></code>: This is the keyword that indicates you are creating a new table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table_name</span></code>: This is the name of the table you want to create. Table names must be unique within the database.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">column1</span></code>, <code class="docutils literal notranslate"><span class="pre">column2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">columnN</span></code>: These are the names of the columns that will be part of the table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">data_type1</span></code>, <code class="docutils literal notranslate"><span class="pre">data_type2</span></code>, …, <code class="docutils literal notranslate"><span class="pre">data_typeN</span></code>: These are the data types that define the type of data each column can store, such as VARCHAR, INT, DECIMAL, DATE, etc.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">[constraints]</span></code>: Optional constraints can be applied to columns to enforce data integrity and ensure data quality. Common constraints include PRIMARY KEY, FOREIGN KEY, UNIQUE, NOT NULL, and CHECK.</p></li>
+</ol>
+<p>Let’s consider a practical example of creating a “employees” table to store information about employees in a company:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">department</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">hire_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example:</p>
+<ul class="simple">
+<li><p>The table is named “employees.”</p></li>
+<li><p>The “employee_id” column is of data type INT and is designated as the primary key of the table, ensuring that each employee has a unique identifier.</p></li>
+<li><p>The “first_name” and “last_name” columns are of data type VARCHAR with a maximum length of 50 characters, and they are specified as NOT NULL, meaning they must have a value for each record.</p></li>
+<li><p>The “department” column is of data type VARCHAR with a maximum length of 50 characters and can contain NULL values.</p></li>
+<li><p>The “hire_date” column is of data type DATE to store the date when the employee was hired.</p></li>
+<li><p>The “salary” column is of data type DECIMAL with a precision of 10 digits and a scale of 2 (i.e., two decimal places) to store the employee’s salary.</p></li>
+</ul>
+<p>Once the <code class="docutils literal notranslate"><span class="pre">&quot;CREATE</span> <span class="pre">TABLE&quot;</span></code> statement is executed, the <code class="docutils literal notranslate"><span class="pre">&quot;employees&quot;</span></code> table is created with the defined structure. You can then start inserting data into the table using the “INSERT INTO” statement and perform various data manipulation operations such as SELECT, UPDATE, DELETE, and more.</p>
+<p><strong>Creating tables</strong> is a crucial step in database design as it establishes the foundation for data storage and organization. Properly defining the table’s structure and constraints ensures data integrity, prevents data duplication, and enables efficient data retrieval and manipulation. The <code class="docutils literal notranslate"><span class="pre">&quot;CREATE</span> <span class="pre">TABLE&quot;</span></code> statement is a fundamental building block of SQL, allowing users to create and manage structured data in relational databases effectively.</p>
+</div>
+<div class="section" id="altering-tables">
+<h2>2. Altering Tables:<a class="headerlink" href="#altering-tables" title="Permalink to this headline">¶</a></h2>
+<p>In SQL, the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement is used to modify the structure of an existing database table. It allows you to add, modify, or delete columns, as well as apply constraints, indexes, and other table-level changes without having to drop and recreate the table. The <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement is a powerful tool for managing and adapting the database schema to evolving business requirements. Let’s dive into a detailed explanation of the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement in SQL.</p>
+<ol>
+<li><p>Adding Columns:
+You can use the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement to add new columns to an existing table. This is particularly useful when you need to accommodate new data or introduce new attributes. The syntax for adding a column is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">data_type</span><span class="w"> </span><span class="p">[</span><span class="k">constraints</span><span class="p">];</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For example, to add a new column “email” of type VARCHAR to a table “employees,” you would use the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Modifying Columns:
+The <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement can be used to modify the data type or constraints of an existing column. This is beneficial when you want to adjust the data type to store different data or enforce additional constraints. The syntax for modifying a column is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="w">    </span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="k">column_name</span><span class="w"> </span><span class="n">new_data_type</span><span class="w">    </span><span class="p">[</span><span class="n">new_constraints</span><span class="p">]</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For instance, to change the data type of the “salary” column to a DECIMAL with two decimal places in the “employees” table, you would execute the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="k">MODIFY</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="w"> </span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Dropping Columns:
+The <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement allows you to remove columns that are no longer needed from a table. Use this operation with caution, as it leads to data loss for the dropped columns. The syntax for dropping a column is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="k">column_name</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For example, to remove the “email” column from the “employees” table, you would use the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">COLUMN</span><span class="w"> </span><span class="n">email</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Adding Constraints:
+You can apply constraints, such as primary key, unique, foreign key, and check constraints, using the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement. Constraints enforce data integrity and maintain consistency in the database. The syntax for adding a constraint is:</p></li>
+</ol>
+<p><strong>Example 1:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="k">constraint_name</span><span class="w"> </span><span class="n">constraint_type</span><span class="w"> </span><span class="p">(</span><span class="k">column_name</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For instance, to add a primary key constraint on the “employee_id” column in the “employees” table, you would execute the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">PK_employees</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p><strong>Example 2:</strong></p>
+<p>Creating a new table named employee_projects and then altering that table to add a foreign key constraint.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employee_projects</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">project_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">project_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">start_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">end_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employee_projects</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">fk_emp_proj</span><span class="w"> </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">employee_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">emp11</span><span class="p">(</span><span class="n">employee_id</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ol>
+<li><p>Removing Constraints:
+To remove constraints from a table, you use the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement with the <code class="docutils literal notranslate"><span class="pre">DROP</span> <span class="pre">CONSTRAINT</span></code> clause. This is helpful when constraints are no longer necessary or need to be replaced. The syntax for dropping a constraint is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">constraint_name</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For example, to drop the primary key constraint “PK_employees” from the “employees” table, you would use the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">DROP</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+<li><p>Renaming a Table:
+The <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement also allows you to rename an existing table, providing a more descriptive name or reflecting changes in the data model. The syntax for renaming a table is:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">current_table_name</span><span class="w"></span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">new_table_name</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>For instance, to rename the table “old_table” to “new_table,” you would use the following query:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"></span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">emp11</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ol>
+<p>In conclusion, the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement in SQL is a powerful and versatile tool for modifying the structure of existing database tables. It enables you to adapt the database schema to changing business requirements without the need to recreate the entire table. By adding, modifying, or dropping columns and applying constraints, you can ensure data integrity and enhance the flexibility of your database. The <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement is a fundamental aspect of SQL that allows for seamless database schema evolution and optimization.</p>
+</div>
+<div class="section" id="dropping-tables">
+<h2>3. Dropping Tables:<a class="headerlink" href="#dropping-tables" title="Permalink to this headline">¶</a></h2>
+<p>The DROP TABLE statement in SQL is a command used to remove an existing table and all its associated data, indexes, triggers, and constraints from a database. This operation is irreversible and permanently deletes the table and its contents. The DROP TABLE command is a critical operation that should be used with caution, as it results in the loss of data.</p>
+<p>The syntax for the DROP TABLE statement is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Where <code class="docutils literal notranslate"><span class="pre">table_name</span></code> is the name of the table you want to drop.</p>
+<p>When using the DROP TABLE statement, several important points should be considered:</p>
+<ol class="simple">
+<li><p><strong>Data Loss:</strong> The most significant aspect of the DROP TABLE command is that it irreversibly deletes all data stored within the specified table. This includes all rows, columns, and associated data. Therefore, it’s crucial to have backups of the data before executing this command, especially for production databases.</p></li>
+<li><p><strong>Constraints and Dependencies:</strong> A table can have constraints such as primary keys, foreign keys, unique constraints, and check constraints. If a table being dropped is referenced by another table’s foreign key, the dependent table might need to be modified or dropped as well. Dropping a table with constraints may require careful consideration of its impact on the overall database structure.</p></li>
+<li><p><strong>Indexes and Triggers:</strong> In addition to data, a table may have indexes and triggers associated with it. When the table is dropped, all these related objects are also removed. Indexes play a vital role in query performance, so dropping a table might affect the performance of other queries that utilize those indexes.</p></li>
+<li><p><strong>Permissions and Ownership:</strong> Depending on the database system, the user executing the DROP TABLE command must have sufficient privileges to perform this operation. The ownership of the table might also change after dropping it.</p></li>
+<li><p><strong>Recovery:</strong> As mentioned earlier, the DROP TABLE operation is irreversible. Even if executed accidentally, it’s challenging to recover the lost data without recent backups. Regular database backups are essential for safeguarding against data loss due to DROP TABLE or other unforeseen events.</p></li>
+</ol>
+<p>Here’s a simple example to illustrate the usage of the DROP TABLE statement:</p>
+<p>Suppose we have a table named “customers” containing customer information:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>If we want to drop the “customers” table:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">DROP</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">customers</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After executing this command, the entire “customers” table will be removed from the database, along with any associated data and indexes.</p>
+<p>In conclusion, the DROP TABLE statement is a powerful but potentially dangerous command in SQL. It’s essential to use this command with caution and ensure that you have proper backups and a clear understanding of the implications before executing it. It’s also recommended to perform such operations in a controlled environment, such as a development or testing database, before applying them to production databases. Proper planning and consideration are necessary to avoid unintentional data loss and maintain the integrity of the database structure.</p>
+</div>
+<div class="section" id="renaming-tables">
+<h2>4. Renaming Tables:<a class="headerlink" href="#renaming-tables" title="Permalink to this headline">¶</a></h2>
+<p>Renaming a table in SQL is a fundamental operation that involves changing the name of an existing table in a database. This can be necessary for various reasons, such as improving table naming conventions, reflecting changes in business requirements, or enhancing the overall organization of the database. Renaming a table is often performed using the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement, which allows you to modify the structure of the table, including its name.</p>
+<p>The syntax for renaming a table using the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement varies slightly depending on the specific database management system (DBMS) being used. However, the general process remains consistent:</p>
+<ol>
+<li><p><strong>Using the ALTER TABLE Statement:</strong></p>
+<p>In most relational database systems, you can use the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement to rename a table. The syntax typically follows this pattern:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">current_table_name</span><span class="w"></span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">new_table_name</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here’s a breakdown of the components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code>: This clause indicates that you are modifying an existing table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">current_table_name</span></code>: This is the current name of the table you want to rename.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">RENAME</span> <span class="pre">TO</span></code>: This phrase specifies that you are renaming the table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">new_table_name</span></code>: This is the new name you want to assign to the table.</p></li>
+</ul>
+</li>
+<li><p><strong>Example:</strong></p>
+<p>Let’s consider a scenario where you have a table named <code class="docutils literal notranslate"><span class="pre">old_orders</span></code> that you want to rename to <code class="docutils literal notranslate"><span class="pre">new_orders</span></code>:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">old_orders</span><span class="w"></span>
+<span class="k">RENAME</span><span class="w"> </span><span class="k">TO</span><span class="w"> </span><span class="n">new_orders</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>After executing this statement, the table <code class="docutils literal notranslate"><span class="pre">old_orders</span></code> will be renamed to <code class="docutils literal notranslate"><span class="pre">new_orders</span></code>.</p>
+</li>
+<li><p><strong>Considerations:</strong></p>
+<p>Renaming a table might impact other database objects, such as views, procedures, or application code that reference the table. Therefore, it’s crucial to ensure that you update any dependent objects to reflect the new table name.</p>
+</li>
+<li><p><strong>Database Management Systems:</strong></p>
+<p>Different database management systems may have variations in the syntax for renaming tables. For example:</p>
+<ul class="simple">
+<li><p>In PostgreSQL: <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">current_table_name</span> <span class="pre">RENAME</span> <span class="pre">TO</span> <span class="pre">new_table_name;</span></code></p></li>
+<li><p>In MySQL: <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span> <span class="pre">current_table_name</span> <span class="pre">RENAME</span> <span class="pre">new_table_name;</span></code></p></li>
+<li><p>In SQL Server: <code class="docutils literal notranslate"><span class="pre">sp_rename</span> <span class="pre">'current_table_name',</span> <span class="pre">'new_table_name';</span></code></p></li>
+</ul>
+<p>Always refer to the documentation of the specific DBMS you are using for precise syntax details.</p>
+</li>
+<li><p><strong>Permissions:</strong></p>
+<p>Depending on the DBMS and the user’s privileges, appropriate permissions may be required to perform the renaming operation.</p>
+</li>
+</ol>
+<p>In conclusion, renaming a table in SQL involves using the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement to change the name of an existing table in a database. This operation is valuable for maintaining consistent naming conventions, adapting to evolving business needs, and enhancing the organization of database objects. It’s essential to consider potential impacts on dependent objects and ensure that the renaming process is conducted with precision to avoid unintended consequences.</p>
+</div>
+<div class="section" id="truncating-tables">
+<h2>5. Truncating Tables:<a class="headerlink" href="#truncating-tables" title="Permalink to this headline">¶</a></h2>
+<p>In SQL, the <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> statement is a database operation that is used to quickly and efficiently remove all data from a table while maintaining the table’s structure, indexes, and constraints. Unlike the <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> statement, which removes data row by row and generates individual logging entries for each deletion, <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> is designed to be a more efficient way to clear a table’s content, especially when dealing with large datasets. Let’s delve into the concept of truncating a table in SQL.</p>
+<p>When you truncate a table, the following actions take place:</p>
+<ol class="simple">
+<li><p><strong>Data Removal:</strong> All rows within the specified table are removed. This action is performed in a single, atomic operation, which means that the data removal is executed as a complete unit and is not interrupted by other database activities.</p></li>
+<li><p><strong>Table Structure:</strong> The table’s structure, including columns, data types, indexes, and constraints, remains unchanged. Truncating a table does not affect the table’s schema; it only removes the data contained within it.</p></li>
+<li><p><strong>Efficiency:</strong> <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> is generally faster and more resource-efficient than using the <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> statement, especially for large tables. This is because <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> deallocates the data pages used by the table, resulting in less overhead and fewer log entries compared to individual row deletions.</p></li>
+<li><p><strong>Logging:</strong> While <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> generates log entries for each deleted row, <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> generates minimal logging. It logs the deallocation of data pages and the removal of data pointers, making it faster and less resource-intensive.</p></li>
+<li><p><strong>Identity Columns:</strong> Identity column values (if applicable) are reset to their initial seed value after a table is truncated.</p></li>
+<li><p><strong>Permissions:</strong> Truncating a table requires appropriate permissions on the table. Usually, users need to have the <code class="docutils literal notranslate"><span class="pre">ALTER</span></code> or <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> privilege on the table to use the <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> statement.</p></li>
+</ol>
+<p>However, there are a few considerations to keep in mind when using <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code>:</p>
+<ul class="simple">
+<li><p><strong>Referential Integrity:</strong> Unlike the <code class="docutils literal notranslate"><span class="pre">DELETE</span></code> statement, which can enforce referential integrity by triggering cascade deletes or invoking delete triggers, <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> does not activate such operations. Referential integrity constraints must be manually handled before truncating a table.</p></li>
+<li><p><strong>Conditions:</strong> Truncating a table cannot be used if the table is referenced by other tables via foreign key relationships, or if the table is involved in active transactions.</p></li>
+</ul>
+<p>Here’s a simple example of using the <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> statement:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Truncate the &quot;orders&quot; table, removing all data.</span>
+<span class="k">TRUNCATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the <code class="docutils literal notranslate"><span class="pre">orders</span></code> table’s data will be removed, but the table structure will remain intact. Any associated indexes, constraints, and triggers will also be preserved.</p>
+<p>In summary, the <code class="docutils literal notranslate"><span class="pre">TRUNCATE</span> <span class="pre">TABLE</span></code> statement is a powerful tool for efficiently clearing the data within a table while maintaining the table’s structure and related components. It’s particularly useful when you need to quickly clean up large datasets or reset tables with identity columns. However, due to its nature, it’s important to ensure that you understand its implications, especially in terms of referential integrity and active transactions, before using it in a production environment.</p>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="theory">
+<h3>Theory:<a class="headerlink" href="#theory" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>What is SQL used for, and what does the acronym SQL stand for?</p></li>
+<li><p>How do you retrieve all columns from a table named “students”?</p></li>
+<li><p>Describe the role of data types when defining columns in a table. Why is it important to choose appropriate data types?</p></li>
+<li><p>Explain the difference between adding a new column and modifying an existing column in a table. What are the implications of modifying column data types?</p></li>
+<li><p>How can altering a table by adding or modifying constraints enhance the integrity and reliability of your database?</p></li>
+<li><p>How does dropping a table differ from truncating a table in terms of the impact on data and database structure?</p></li>
+<li><p>Explain how dropping a table might affect dependent objects such as views, triggers, and procedures. What precautions should you take to avoid unintended consequences?</p></li>
+<li><p>Why might you need to rename a table in a database? What are the potential challenges and considerations when renaming a table?</p></li>
+<li><p>Compare the performance and efficiency of using the DELETE statement versus the TRUNCATE TABLE statement to remove data from a table.</p></li>
+<li><p>Describe scenarios where you might choose to use the TRUNCATE TABLE statement instead of the DELETE statement.</p></li>
+</ol>
+<p><strong>Table for questions :</strong></p>
+<p><strong>Note: Don’t add further columns after price column in table those are just for example, how we can add those in CREATE query</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span>CREATE TABLE books (
+    book_id INT,
+    title VARCHAR(255),
+    author VARCHAR(100),
+    publication_year INT,
+    genre VARCHAR(50),
+    price DECIMAL(10, 2),
+    publisher VARCHAR(100),  -- Added for ALTER TABLE queries
+    isbn VARCHAR(20),        -- Added for isbn-related queries
+    edition INT,             -- Added for edition-related queries
+    genre_id INT,            -- For foreign key constraint with &#39;genres&#39; table
+    rating INT DEFAULT 5     -- For rating column with default value and constraint
+);
+
+INSERT INTO books (book_id, title, author, publication_year, genre, price, publisher, isbn, edition, genre_id, rating) VALUES
+(1, &#39;The Mysterious Affair at Styles&#39;, &#39;Agatha Christie&#39;, 1920, &#39;Mystery&#39;, 15.99, &#39;John Lane&#39;, &#39;9780007119271&#39;, 1, 1, 5),
+(2, &#39;The Hobbit&#39;, &#39;J.R.R. Tolkien&#39;, 1937, &#39;Fantasy&#39;, 12.99, &#39;George Allen &amp; Unwin&#39;, &#39;9780547928227&#39;, 1, 2, 4),
+(3, &#39;1984&#39;, &#39;George Orwell&#39;, 1949, &#39;Dystopian&#39;, 8.99, &#39;Secker &amp; Warburg&#39;, &#39;9780451524935&#39;, 1, 3, 4),
+(4, &#39;The Great Gatsby&#39;, &#39;F. Scott Fitzgerald&#39;, 1925, &#39;Novel&#39;, 10.99, &#39;Charles Scribner\&#39;s Sons&#39;, &#39;9780743273565&#39;, 1, 4, 5),
+(5, &#39;Pride and Prejudice&#39;, &#39;Jane Austen&#39;, 1813, &#39;Romance&#39;, 9.99, &#39;T. Egerton Whitehall&#39;, &#39;9780679783268&#39;, 1, 5, 4),
+(6, &#39;To Kill a Mockingbird&#39;, &#39;Harper Lee&#39;, 1960, &#39;Novel&#39;, 14.99, &#39;J. B. Lippincott &amp; Co.&#39;, &#39;9780446310789&#39;, 1, 4, 5),
+(7, &#39;Harry Potter and the Philosopher\&#39;s Stone&#39;, &#39;J.K. Rowling&#39;, 1997, &#39;Fantasy&#39;, 20.99, &#39;Bloomsbury&#39;, &#39;9780747532743&#39;, 1, 2, 5),
+(8, &#39;The Da Vinci Code&#39;, &#39;Dan Brown&#39;, 2003, &#39;Thriller&#39;, 18.99, &#39;Doubleday&#39;, &#39;9780385504201&#39;, 1, 6, 4),
+(9, &#39;The Catcher in the Rye&#39;, &#39;J.D. Salinger&#39;, 1951, &#39;Novel&#39;, 7.99, &#39;Little, Brown and Company&#39;, &#39;9780316769488&#39;, 1, 4, 3),
+(10, &#39;The Chronicles of Narnia&#39;, &#39;C.S. Lewis&#39;, 1950, &#39;Fantasy&#39;, 25.99, &#39;Geoffrey Bles&#39;, &#39;9780066238500&#39;, 1, 2, 5);
+
+</pre></div>
+</div>
+</div>
+<div class="section" id="coding-questions">
+<h3>Coding Questions:<a class="headerlink" href="#coding-questions" title="Permalink to this headline">¶</a></h3>
+<p>Q.  Write a query to select all columns and rows from the ‘books’ table.</p>
+<p>Q.  Write a query to display the title and author of all books.</p>
+<p>Q. Write a query to count the total number of books in the table.</p>
+<p>Q. Write a query to find all books written by ‘J.K. Rowling’.</p>
+<p>Q. Write a query to list all books sorted by price in ascending order.</p>
+<p>Q. Write a query to find the book with the most recent publication year.</p>
+<p>Q. Write a query to select all books that are in the ‘Fantasy’ genre.</p>
+<p>Q. Write a query to list authors who have written more than 5 books.</p>
+<p>Q. Add a column ‘publisher’ of type VARCHAR(100) to the ‘books’ table.</p>
+<p>Q. Write a query to select books where the genre is NULL or not defined.</p>
+<p>Q. Change the data type of the ‘price’ column in the ‘books’ table to FLOAT.</p>
+<p>Q. Add a column named page_count of type INT to store the number of pages in each book.</p>
+<p>Q. Rename the column publication_year to year_published.</p>
+<p>Q. Add two columns ‘isbn’ (VARCHAR(20)) and ‘edition’ (INT) to the ‘books’ table.</p>
+<p>Q. Set the default value for the edition column to 1.</p>
+<p>Q. Remove the genre_id column from the table.</p>
+<p>Q. Add a primary key constraint to the ‘book_id’ column in the ‘books’ table.</p>
+<p>Q. Remove the primary key constraint from the ‘book_id’ column in the ‘books’ table.</p>
+<p>Q. Rename the column ‘title’ to ‘book_title’ in the ‘books’ table.</p>
+<p>Q. Delete all the data from the books table without dropping the table itself.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="8_SQL_Constraints.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">SQL Constrains</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="10.1_SQL_%28execution_order%29.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Order of execution of query</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

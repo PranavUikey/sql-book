@@ -1,0 +1,371 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Introduction &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SQL SELECT AND FROM :" href="4_SQL_Select_Distinct.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql">
+   What is SQL?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql-used-for">
+   What is SQL used for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-sql-database">
+   What is a SQL Database?
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQL Introduction</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql">
+   What is SQL?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql-used-for">
+   What is SQL used for?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-a-sql-database">
+   What is a SQL Database?
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="sql-introduction">
+<h1>SQL Introduction<a class="headerlink" href="#sql-introduction" title="Permalink to this headline">¶</a></h1>
+<p>This tutorial is intended for individuals seeking to derive insights from data. <strong>SQL</strong> is widely regarded as the fundamental tool for data analysis, enabling users to access, clean, and analyze database-stored data. Despite its simplicity to learn, <strong>SQL</strong> is employed by major corporations to tackle highly complex problems.</p>
+<p>Specifically, this tutorial targets aspiring analysts who possess basic familiarity with Excel but lack coding experience.</p>
+<div class="section" id="what-is-sql">
+<h2>What is SQL?<a class="headerlink" href="#what-is-sql" title="Permalink to this headline">¶</a></h2>
+<p><strong>SQL</strong> stands for <strong><code class="docutils literal notranslate"><span class="pre">Structured</span> <span class="pre">Query</span> <span class="pre">Language</span></code></strong>. It is a programming language used for managing and manipulating relational databases. <strong>SQL</strong> provides a standardized way to interact with databases, allowing users to create, modify, and retrieve data from them. It is widely used in various industries and applications where structured data is stored and needs to be queried and manipulated efficiently. <strong>SQL</strong> allows users to perform tasks such as creating database schemas, inserting and updating data, and querying and analyzing data using various operations and functions. It is a fundamental tool for working with relational databases and is essential for tasks related to data management, data analysis, and database administration.</p>
+<p>Following are few of the advantages of learning <strong>SQL</strong>.</p>
+<ol class="simple">
+<li><p><strong>SQL is easy to learn</strong>: SQL has a relatively straightforward syntax and is designed to be user-friendly, making it accessible to beginners. It has a declarative nature, meaning users can focus on specifying what they want from the database rather than how to obtain it.</p></li>
+<li><p><strong>Portability and Standardization</strong>: SQL is a standardized language, which means that the code written in SQL can typically be used across different database systems with minimal modifications. This portability allows for flexibility and reduces vendor lock-in.</p></li>
+<li><p><strong>Efficient Data Retrieval</strong>: SQL’s powerful query capabilities enable users to retrieve specific data from databases quickly and efficiently. With SQL, complex queries involving joins, filtering, sorting, and aggregations can be executed to extract the required information.</p></li>
+<li><p><strong>Scalability and Performance</strong>: SQL databases are known for their scalability, enabling handling large amounts of data and concurrent users. Additionally, SQL optimizers in database systems help to enhance query performance by analyzing query plans and executing them in an optimized manner.</p></li>
+<li><p><strong>Data Integrity and Security</strong>: SQL offers robust mechanisms for maintaining data integrity within databases. It supports features such as constraints, transactions, and foreign key relationships, ensuring that data remains consistent and accurate. SQL databases also provide built-in security features, including access control, user authentication, and data encryption, to protect sensitive information.</p></li>
+</ol>
+<p><code class="docutils literal notranslate"><span class="pre">{note}</span> <span class="pre">SQL</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">a</span> <span class="pre">case-sensitive</span> <span class="pre">language.</span></code></p>
+</div>
+<div class="section" id="what-is-sql-used-for">
+<h2>What is SQL used for?<a class="headerlink" href="#what-is-sql-used-for" title="Permalink to this headline">¶</a></h2>
+<p><strong>SQL (Structured Query Language)</strong> is primarily used for managing and manipulating relational databases. It serves as a standard language for interacting with databases, performing various tasks related to data management, retrieval, manipulation, and analysis. Here are some of the key uses of SQL:</p>
+<ol class="simple">
+<li><p><strong>Data Retrieval:</strong> SQL is used to retrieve data from databases. You can write queries to fetch specific information from tables, filter data based on conditions, and sort and group data as needed.</p></li>
+<li><p><strong>Data Manipulation:</strong> SQL allows you to insert, update, and delete data in the database. You can add new records, modify existing ones, and remove unwanted data using SQL commands.</p></li>
+<li><p><strong>Data Definition:</strong> SQL is used to define the structure of databases. You can create tables, specify their columns and data types, define constraints (such as primary keys and foreign keys), and manage indexes.</p></li>
+<li><p><strong>Data Maintenance:</strong> SQL is used to maintain the integrity and consistency of data. You can enforce data validation rules, manage relationships between tables, and ensure data quality.</p></li>
+<li><p><strong>Data Analysis:</strong> SQL provides powerful tools for data analysis. You can aggregate data using functions like SUM, AVG, COUNT, and calculate statistics. This is crucial for generating reports and gaining insights from data.</p></li>
+<li><p><strong>Data Joins:</strong> SQL allows you to combine data from multiple tables using various types of joins (INNER JOIN, LEFT JOIN, etc.). This is essential for querying data that is distributed across multiple tables.</p></li>
+<li><p><strong>Data Aggregation:</strong> SQL enables you to perform aggregation operations on data, such as finding the total sales amount, average salary, maximum values, and more.</p></li>
+<li><p><strong>Data Sorting:</strong> SQL provides mechanisms to sort data based on specific columns in ascending or descending order.</p></li>
+<li><p><strong>Data Filtering:</strong> SQL allows you to filter data using the WHERE clause to retrieve only the rows that meet certain conditions.</p></li>
+<li><p><strong>Data Transformation:</strong> SQL can be used to transform data, convert data types, and perform calculations on data within queries.</p></li>
+<li><p><strong>Data Security:</strong> SQL is used to define user roles and permissions for database access, ensuring that only authorized users can interact with the data.</p></li>
+<li><p><strong>Stored Procedures and Functions:</strong> SQL supports the creation of stored procedures and functions, which are pre-defined sets of SQL statements that can be executed as a single unit. They enhance efficiency and maintainability of code.</p></li>
+<li><p><strong>Data Migration:</strong> SQL is used for transferring data between databases, including importing data from external sources and exporting data to other systems.</p></li>
+<li><p><strong>Data Backup and Recovery:</strong> SQL is used for backing up and restoring databases to prevent data loss due to failures or emergencies.</p></li>
+<li><p><strong>Application Development:</strong> Many applications interact with databases using SQL. This includes web applications, desktop software, mobile apps, and more.</p></li>
+</ol>
+<p>In essence, <strong>SQL</strong> is a versatile language that is essential for database management, data manipulation, and data analysis. It is a critical tool for anyone involved in working with relational databases, from database administrators to software developers and analysts.</p>
+</div>
+<div class="section" id="what-is-a-sql-database">
+<h2>What is a SQL Database?<a class="headerlink" href="#what-is-a-sql-database" title="Permalink to this headline">¶</a></h2>
+<p>A <strong>database</strong> is a structured collection of data stored in a computer system. It organizes and manages large amounts of information in tables, with rows representing instances of entities and columns defining their attributes. <strong>Databases</strong> ensure data integrity, security, and offer operations to manipulate and query data. They are essential for storing and managing data in various domains, including business, finance, healthcare, and more.</p>
+<p>If you’re familiar with Excel, you’ll find tables in databases to be similar. Tables have rows and columns, but they are more structured compared to Excel. In a database table, columns are organized and each must have a unique name. Here is an example of a sample table from the 2010 Academy Awards to give you a better idea of this organization:</p>
+<p><img alt="table1_from_L1.png" src="../_images/table1_from_L1.png" /></p>
+<p>Congratulations, you’re making progress!
+Now that you have a good understanding of the fundamentals, let’s delve into <strong>SQL</strong> and expand your knowledge.</p>
+</div>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='right-next' id="next-link" href="4_SQL_Select_Distinct.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SQL SELECT AND FROM :</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

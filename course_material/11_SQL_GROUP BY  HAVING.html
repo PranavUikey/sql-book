@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GROUP BY Clause &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="SQL JOINS" href="12_SQL_JOINS.html" />
+    <link rel="prev" title="CASE STATEMENT" href="10_SQL_CASE%20Statement.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql-group-by-clause">
+   What is SQL GROUP BY clause?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-sql-group-by-clause-used">
+   How is SQL GROUP BY clause used?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-sql-group-by-clause-work">
+   How does SQL GROUP BY clause work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-having-clause">
+   SQL HAVING Clause
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sql-having-clause">
+     What is SQL HAVING Clause?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-sql-having-clause-used">
+     How is SQL HAVING Clause used?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-sql-having-clause-works">
+     How does SQL HAVING Clause works?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>GROUP BY Clause</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-is-sql-group-by-clause">
+   What is SQL GROUP BY clause?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-is-sql-group-by-clause-used">
+   How is SQL GROUP BY clause used?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#how-does-sql-group-by-clause-work">
+   How does SQL GROUP BY clause work?
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#sql-having-clause">
+   SQL HAVING Clause
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-sql-having-clause">
+     What is SQL HAVING Clause?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-sql-having-clause-used">
+     How is SQL HAVING Clause used?
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-sql-having-clause-works">
+     How does SQL HAVING Clause works?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="group-by-clause">
+<h1>GROUP BY Clause<a class="headerlink" href="#group-by-clause" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-sql-group-by-clause">
+<h2>What is SQL GROUP BY clause?<a class="headerlink" href="#what-is-sql-group-by-clause" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>SQL GROUP BY</strong> clause is used to group rows from a database table based on one or more columns. It is often used in combination with aggregate functions to perform calculations and analysis on groups of data rather than individual rows. The <strong>GROUP BY</strong> clause helps to summarize and organize data into meaningful subsets.</p>
+</div>
+<div class="section" id="how-is-sql-group-by-clause-used">
+<h2>How is SQL GROUP BY clause used?<a class="headerlink" href="#how-is-sql-group-by-clause-used" title="Permalink to this headline">¶</a></h2>
+<p>The basic syntax of the <strong>GROUP BY</strong> clause in SQL is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">aggregate_function</span><span class="p">(</span><span class="k">column</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>: Specifies the columns you want to include in the result set. This can include both the columns you are grouping by and the columns you are applying aggregate functions to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aggregate_function(column)</span></code>: Specifies the aggregate function (e.g., SUM, COUNT, AVG, MAX, MIN) you want to apply to a specific column within each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FROM</span></code>: Specifies the table from which you are retrieving data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code>: Specifies the columns by which you want to group the data. Each unique combination of values in these columns will represent a separate group.</p></li>
+</ul>
+<p>The order of the clauses is important, with <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> followed by <code class="docutils literal notranslate"><span class="pre">FROM</span></code>, and then <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> coming at the end of the query.</p>
+<p>Here’s a simple example using a <code class="docutils literal notranslate"><span class="pre">&quot;sales&quot;</span></code> table:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_sales</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the query groups the sales data by the <code class="docutils literal notranslate"><span class="pre">&quot;region&quot;</span></code> column and calculates the total sales amount for each region using the <code class="docutils literal notranslate"><span class="pre">SUM()</span></code> aggregate function.</p>
+<p>You can also use multiple columns in the <strong>GROUP BY</strong> clause to create more granular groups:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">average_sales</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="n">product</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this case, the query groups the data by both <code class="docutils literal notranslate"><span class="pre">&quot;region&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;product&quot;</span></code> columns and calculates the average sales amount for each unique combination of region and product.</p>
+<p>The <strong>GROUP BY</strong> clause is a powerful tool for summarizing and analyzing data within SQL queries. It helps you organize data into meaningful groups and perform calculations on those groups.</p>
+</div>
+<div class="section" id="how-does-sql-group-by-clause-work">
+<h2>How does SQL GROUP BY clause work?<a class="headerlink" href="#how-does-sql-group-by-clause-work" title="Permalink to this headline">¶</a></h2>
+<p>Here’s how the <strong>SQL GROUP BY</strong> clause works:</p>
+<ol class="simple">
+<li><p><strong>Grouping Data:</strong>
+When you use the GROUP BY clause, you specify one or more columns by which you want to group the data. The rows in the table are then divided into groups based on the distinct values in those columns.</p></li>
+<li><p><strong>Aggregation:</strong>
+After the data is grouped, you can apply aggregate functions like SUM, COUNT, AVG, MAX, or MIN to calculate values for each group. These functions perform calculations on the data within each group and return a single value.</p></li>
+<li><p><strong>Single Output Row per Group:</strong>
+The result of using GROUP BY is a set of rows, where each row represents a group and includes the aggregated values for that group. Each group is identified by the unique combination of values in the columns specified in the GROUP BY clause.</p></li>
+</ol>
+<p>Here’s a basic example to illustrate the use of <strong>GROUP BY</strong>:</p>
+<p>Suppose you have a table named “orders” with columns “product_id,” “customer_id,” and “order_amount.” You want to calculate the total order amount for each product:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">product_id</span><span class="p">,</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="n">order_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total_amount</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">orders</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">product_id</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the SQL query groups the orders by the <code class="docutils literal notranslate"><span class="pre">&quot;product_id&quot;</span></code> column and calculates the total order amount for each product using the <code class="docutils literal notranslate"><span class="pre">SUM()</span></code> aggregate function. The result will show a row for each unique product with its corresponding total order amount.</p>
+<p>Key points to remember about the <strong>GROUP BY</strong> clause:</p>
+<ul class="simple">
+<li><p>The columns specified in the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause must also be included in the <code class="docutils literal notranslate"><span class="pre">SELECT</span></code> clause, except for the columns used in aggregate functions.</p></li>
+<li><p>You can use multiple columns in the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause to create more granular groups.</p></li>
+<li><p>The order of the columns in the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause matters. Different orderings can result in different groups and calculations.</p></li>
+<li><p>You can use the <code class="docutils literal notranslate"><span class="pre">HAVING</span></code> clause after GROUP BY to filter the grouped results based on aggregate calculations.</p></li>
+</ul>
+<p>In summary, the <strong>SQL GROUP BY</strong> clause is a powerful tool for performing data aggregation and analysis on specific subsets of data within a table. It allows you to group data by one or more columns, apply aggregate functions to each group, and obtain meaningful insights from your database.</p>
+<p><img alt="tabl2_from_sql4.png" src="../_images/tabl2_from_sql4.png" /></p>
+</div>
+<div class="section" id="sql-having-clause">
+<h2>SQL HAVING Clause<a class="headerlink" href="#sql-having-clause" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-sql-having-clause">
+<h3>What is SQL HAVING Clause?<a class="headerlink" href="#what-is-sql-having-clause" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>SQL HAVING</strong> clause is used in conjunction with the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause to filter the results of a query based on aggregate functions. It allows you to apply a condition to the groups created by the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause. The <strong>HAVING</strong> clause filters groups based on the result of aggregate calculations rather than individual row values.</p>
+</div>
+<div class="section" id="how-is-sql-having-clause-used">
+<h3>How is SQL HAVING Clause used?<a class="headerlink" href="#how-is-sql-having-clause-used" title="Permalink to this headline">¶</a></h3>
+<p>Here’s the basic syntax of the <strong>HAVING</strong> clause:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...,</span><span class="w"> </span><span class="n">aggregate_function</span><span class="p">(</span><span class="k">column</span><span class="p">)</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="k">table_name</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="p">...</span><span class="w"></span>
+<span class="k">HAVING</span><span class="w"> </span><span class="n">condition</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">SELECT</span></code>: Specifies the columns you want to include in the result set. This can include both the columns you are grouping by and the columns you are applying aggregate functions to.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">aggregate_function(column)</span></code>: Specifies the aggregate function (e.g., SUM, COUNT, AVG, MAX, MIN) you want to apply to a specific column within each group.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">FROM</span></code>: Specifies the table from which you are retrieving data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code>: Specifies the columns by which you want to group the data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">HAVING</span></code>: Specifies the condition that the aggregated results must meet in order to be included in the result set.</p></li>
+</ul>
+<p>The <strong>HAVING</strong> clause is particularly useful when you want to filter groups based on the result of aggregate functions. It works similarly to the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause, but while the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause filters individual rows before grouping and aggregation, the <strong>HAVING</strong> clause filters groups after grouping and aggregation.</p>
+<p>Here’s an example using a <code class="docutils literal notranslate"><span class="pre">&quot;sales&quot;</span></code> table:</p>
+<p>Suppose you have a <code class="docutils literal notranslate"><span class="pre">&quot;sales&quot;</span></code> table with columns <code class="docutils literal notranslate"><span class="pre">&quot;region,&quot;</span> <span class="pre">&quot;product,&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;sales_amount.&quot;</span></code> You want to find regions where the average sales amount is greater than $10,000:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">average_sales</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="w"></span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the query groups the sales data by the “region” column, calculates the average sales amount for each region using the <code class="docutils literal notranslate"><span class="pre">AVG()</span></code> aggregate function, and then filters out regions where the average sales amount is greater than $10,000 using the <strong>HAVING</strong> clause.</p>
+<p>In summary, the <strong>SQL HAVING</strong> clause is used to filter grouped results based on aggregate functions. It allows you to apply conditions to the results of aggregate calculations and refine the output of your queries.</p>
+</div>
+<div class="section" id="how-does-sql-having-clause-works">
+<h3>How does SQL HAVING Clause works?<a class="headerlink" href="#how-does-sql-having-clause-works" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>SQL HAVING</strong> clause works in conjunction with the GROUP BY clause to filter the results of a query based on aggregate functions. It allows you to specify conditions that must be satisfied by groups of rows created by the <code class="docutils literal notranslate"><span class="pre">GROUP</span> <span class="pre">BY</span></code> clause. Here’s how the <strong>HAVING</strong> clause works step by step:</p>
+<ol class="simple">
+<li><p><strong>Grouping Data:</strong> The GROUP BY clause is used to group rows from a table based on one or more columns. Each unique combination of values in the specified columns represents a separate group.</p></li>
+<li><p><strong>Aggregation:</strong> After the data is grouped, aggregate functions like SUM, COUNT, AVG, MAX, or MIN are applied to each group. These functions perform calculations on the data within each group and produce a single result.</p></li>
+<li><p><strong>Filtering with HAVING:</strong> The HAVING clause comes after the GROUP BY clause and allows you to filter groups based on the result of aggregate functions. It specifies conditions that must be met by the aggregated values of each group.</p></li>
+</ol>
+<p>Here’s a breakdown of the process using a hypothetical <code class="docutils literal notranslate"><span class="pre">&quot;sales&quot;</span></code> table:</p>
+<p>Suppose you have a <code class="docutils literal notranslate"><span class="pre">&quot;sales&quot;</span></code> table with columns <code class="docutils literal notranslate"><span class="pre">&quot;region,&quot;</span> <span class="pre">&quot;product,&quot;</span></code> and <code class="docutils literal notranslate"><span class="pre">&quot;sales_amount.&quot;</span></code> You want to find regions where the average sales amount is greater than $10,000.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">region</span><span class="p">,</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">average_sales</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">sales</span><span class="w"></span>
+<span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">region</span><span class="w"></span>
+<span class="k">HAVING</span><span class="w"> </span><span class="k">AVG</span><span class="p">(</span><span class="n">sales_amount</span><span class="p">)</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">10000</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<ol class="simple">
+<li><p>The query groups the sales data by the “region” column using the <strong>GROUP BY</strong> clause. This creates distinct groups for each region.</p></li>
+<li><p>The AVG() aggregate function calculates the average sales amount for each region within its group.</p></li>
+<li><p>The <strong>HAVING</strong> clause is applied to the aggregated results. It filters out groups where the average sales amount is not greater than $10,000.</p></li>
+<li><p>The final result includes only the regions that meet the condition specified in the HAVING clause.</p></li>
+</ol>
+<p>In essence, the <strong>HAVING</strong> clause acts as a filter for groups. It operates on the aggregated data produced by the GROUP BY clause and helps you narrow down the results to groups that satisfy specific conditions.</p>
+<p>It’s important to note that the <strong>HAVING</strong> clause is used specifically for filtering groups based on aggregate calculations. If you want to filter individual rows before aggregation, you would use the <code class="docutils literal notranslate"><span class="pre">WHERE</span></code> clause. The <strong>HAVING</strong> clause is a powerful tool for refining your results when performing data analysis and reporting using SQL.</p>
+<p><img alt="table3_from_sql4.png" src="../_images/table3_from_sql4.png" /></p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h2>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="theory-questions">
+<h3>Theory Questions:<a class="headerlink" href="#theory-questions" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li><p>What is the primary purpose of the SQL GROUP BY clause?</p></li>
+<li><p>How do you use the GROUP BY clause in an SQL query?</p></li>
+<li><p>What happens if you use multiple columns in the GROUP BY clause? Give an example.</p></li>
+<li><p>Describe the step-by-step process of how the GROUP BY clause works.</p></li>
+<li><p>What is the main distinction between the WHERE and HAVING clauses in SQL?</p></li>
+<li><p>When is it appropriate to use the HAVING clause in a query?</p></li>
+<li><p>Can the HAVING clause be used without the GROUP BY clause? Why or why not?</p></li>
+</ol>
+<p><strong>Table Query for questions:</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">SalesData</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">SaleID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ProductID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Region</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">SalesAmount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">SaleDate</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">SalesData</span><span class="w"> </span><span class="p">(</span><span class="n">SaleID</span><span class="p">,</span><span class="w"> </span><span class="n">ProductID</span><span class="p">,</span><span class="w"> </span><span class="n">Region</span><span class="p">,</span><span class="w"> </span><span class="n">SalesAmount</span><span class="p">,</span><span class="w"> </span><span class="n">SaleDate</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-16&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">450</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-17&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-01-18&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">700</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-16&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">900</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-17&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-02-18&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">800</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-16&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">11</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-17&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-03-18&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">13</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-04-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-04-16&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">15</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">700</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-04-17&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">16</span><span class="p">,</span><span class="w"> </span><span class="mi">103</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">500</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-04-18&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">17</span><span class="p">,</span><span class="w"> </span><span class="mi">104</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;North&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">200</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-05-15&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">18</span><span class="p">,</span><span class="w"> </span><span class="mi">105</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;South&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-05-16&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">19</span><span class="p">,</span><span class="w"> </span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;East&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-05-17&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="w"> </span><span class="mi">102</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;West&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">600</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;2023-05-18&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="coding-questions">
+<h3>Coding Questions:<a class="headerlink" href="#coding-questions" title="Permalink to this headline">¶</a></h3>
+<p>Q. Calculate the total sales amount for each region.</p>
+<p>Q. Find the number of sales transactions in each region.</p>
+<p>Q. Determine the average sales amount for each product.</p>
+<p>Q. Identify the regions with total sales greater than 2000.</p>
+<p>Q. List each product’s highest single transaction amount.</p>
+<p>Q. Find the regions with more than 5 sales transactions.</p>
+<p>Q. Calculate the lowest sales amount recorded in each region.</p>
+<p>Q. Identify products that have an average sales amount of at least 400.</p>
+<p>Q. Determine the total number of unique products sold in each region.</p>
+<p>Q. Find the total sales amount for each month.</p>
+<p>Q. Identify the months with total sales less than 1500.</p>
+<p>Q. Calculate the average sales amount for each region.</p>
+<p>Q. List regions where the maximum sale amount is over 800.</p>
+<p>Q. Find the total sales and average sales amount for each product in the ‘North’ region.</p>
+<p>Q. Identify regions where the minimum sales amount is below 250.</p>
+<p>Q. Count the number of sales transactions that occurred in each year.</p>
+<p>Q.  Identify the maximum sales amount recorded in each year.</p>
+<p>Q. Calculate the total sales amount for each product in each region.</p>
+<p>Q. Determine the average sales amount for each month.</p>
+<p>Q. Count the total number of sales transactions for each day of the week.</p>
+<p>Q.  Calculate the total sales amount for each quarter of the year.(Use QUATER() function).</p>
+<p>Q. Identify all sales transactions where the sales amount was over $500.</p>
+<p>Q. Determine which region had the least number of sales transactions.</p>
+<p>Q. Identify which year had the highest average sales amount.</p>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="10_SQL_CASE%20Statement.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">CASE STATEMENT</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="12_SQL_JOINS.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SQL JOINS</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

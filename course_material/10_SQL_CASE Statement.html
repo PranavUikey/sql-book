@@ -1,0 +1,491 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CASE STATEMENT &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="GROUP BY Clause" href="11_SQL_GROUP%20BY%20%20HAVING.html" />
+    <link rel="prev" title="Order of execution of query" href="10.1_SQL_%28execution_order%29.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   CASE STATEMENT
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-case-statement">
+     What is CASE statement?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-case-statement-used">
+     How is CASE statement used?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-case-statement-work">
+     How does CASE statement work?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>CASE STATEMENT</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   CASE STATEMENT
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-is-case-statement">
+     What is CASE statement?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-is-case-statement-used">
+     How is CASE statement used?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-does-case-statement-work">
+     How does CASE statement work?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="case-statement">
+<h1>CASE STATEMENT<a class="headerlink" href="#case-statement" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-case-statement">
+<h2>What is CASE statement?<a class="headerlink" href="#what-is-case-statement" title="Permalink to this headline">¶</a></h2>
+<p>The CASE statement in SQL is a conditional statement that allows you to perform different actions based on specified conditions. It provides a way to control the flow of the query and perform conditional logic.</p>
+</div>
+<div class="section" id="how-is-case-statement-used">
+<h2>How is CASE statement used?<a class="headerlink" href="#how-is-case-statement-used" title="Permalink to this headline">¶</a></h2>
+<p>The general syntax of the CASE statement is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CASE</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition1</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result1</span><span class="w"></span>
+<span class="w">    </span><span class="k">WHEN</span><span class="w"> </span><span class="n">condition2</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">result2</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="w">    </span><span class="k">ELSE</span><span class="w"> </span><span class="k">result</span><span class="w"></span>
+<span class="k">END</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here’s an example to demonstrate the usage of the CASE statement:</p>
+<p>Consider a table called “employees” with columns “name” and “salary”. We want to categorize employees into different salary ranges based on their salary values.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">CASE</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Low Salary&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">50000</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">&lt;</span><span class="w"> </span><span class="mi">80000</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="s1">&#39;Medium Salary&#39;</span><span class="w"></span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="s1">&#39;High Salary&#39;</span><span class="w"></span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">salary_category</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, we select the “name” and “salary” columns from the “employees” table. The CASE statement is used to check the salary value for each employee and assign a corresponding category based on the specified conditions. If the salary is less than 50000, it is categorized as ‘Low Salary’. If the salary is between 50000 and 80000, it is categorized as ‘Medium Salary’. For any other salary values, it is categorized as ‘High Salary’. The result set will include the employee name, salary, and the assigned salary category.</p>
+</div>
+<div class="section" id="how-does-case-statement-work">
+<h2>How does CASE statement work?<a class="headerlink" href="#how-does-case-statement-work" title="Permalink to this headline">¶</a></h2>
+<p>Here’s how the CASE statement works:</p>
+<ol class="simple">
+<li><p>The CASE statement evaluates the specified conditions one by one.</p></li>
+<li><p>If a condition evaluates to true, the corresponding result expression is returned.</p></li>
+<li><p>If none of the conditions evaluate to true, the result expression in the ELSE clause is returned.</p></li>
+<li><p>The CASE statement can be used in different parts of a query, such as in the SELECT, WHERE, and ORDER BY clauses.</p></li>
+</ol>
+<p>Here’s a simple example to illustrate how the CASE statement works:</p>
+<p>Consider a table called “employees” with columns “name”, “department” and “salary”. We want to compute bonus amount based on various conditions.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">SELECT</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">department</span><span class="p">,</span><span class="w"> </span><span class="n">salary</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">CASE</span><span class="w"> </span><span class="n">department</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">&#39;HR&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">1</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">&#39;Sales&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">15</span><span class="w"></span>
+<span class="w">        </span><span class="k">WHEN</span><span class="w"> </span><span class="s1">&#39;IT&#39;</span><span class="w"> </span><span class="k">THEN</span><span class="w"> </span><span class="n">salary</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">0</span><span class="p">.</span><span class="mi">12</span><span class="w"></span>
+<span class="w">        </span><span class="k">ELSE</span><span class="w"> </span><span class="mi">0</span><span class="w"></span>
+<span class="w">    </span><span class="k">END</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">bonus</span><span class="w"></span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">employees</span><span class="p">;</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the CASE statement computes the bonus amount based on the department of each employee. It multiplies the salary by a specific percentage for each department and assigns the result as the bonus.</p>
+<p>The CASE statement provides a flexible way to perform conditional operations and derive computed values based on specific conditions in SQL queries.</p>
+<p><img alt="table1_from_sql5.png" src="../_images/table1_from_sql5.png" /></p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="theory-questions">
+<h2>Theory Questions:<a class="headerlink" href="#theory-questions" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>What is the purpose of the CASE statement in SQL, and how does it differ from traditional IF-ELSE statements in programming languages?</p></li>
+<li><p>What is the role of the ELSE clause in a CASE statement? When is it executed, and can it be omitted? Explain with an example.</p></li>
+</ol>
+</div>
+<div class="section" id="coding-questions">
+<h2>Coding Questions:<a class="headerlink" href="#coding-questions" title="Permalink to this headline">¶</a></h2>
+<p><strong>Table for questions :</strong></p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">vehicles</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">make</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">model</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">year</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">color</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">type</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+
+<span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">vehicles</span><span class="w"> </span><span class="p">(</span><span class="n">id</span><span class="p">,</span><span class="w"> </span><span class="n">make</span><span class="p">,</span><span class="w"> </span><span class="n">model</span><span class="p">,</span><span class="w"> </span><span class="k">year</span><span class="p">,</span><span class="w"> </span><span class="n">color</span><span class="p">,</span><span class="w"> </span><span class="n">price</span><span class="p">,</span><span class="w"> </span><span class="k">type</span><span class="p">)</span><span class="w"> </span><span class="k">VALUES</span><span class="w"></span>
+<span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Toyota&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Corolla&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2018</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">20000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sedan&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mustang&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">35000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Coupe&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chevrolet&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Silverado&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Black&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">45000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Truck&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Tesla&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Model 3&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;White&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">50000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Electric&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">5</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Honda&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Civic&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2017</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Grey&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">18000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sedan&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;BMW&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;X5&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2022</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Black&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">60000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUV&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mercedes&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;C300&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2021</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;White&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">55000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sedan&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Audi&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;A4&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2018</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Blue&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">28000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Sedan&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Toyota&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;RAV4&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2020</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Silver&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">30000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;SUV&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Ford&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;F-150&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">2019</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Red&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">40000</span><span class="p">.</span><span class="mi">00</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Truck&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Q. Write a query to display the make, model, and a new column price_category that classifies each vehicle as ‘Economy’, ‘Premium’, or ‘Luxury’ based on the price (&lt;25000 as ‘Economy’, between 25000 and 50000 as ‘Premium’, and &gt;50000 as ‘Luxury’).</p>
+<p>Q. Create a query to list the make, model, and a new column age_group categorizing vehicles as ‘New’ (year &gt;= 2020), ‘Recent’ (year between 2017 and 2019), or ‘Older’ (year &lt; 2017).</p>
+<p>Q. Display the make, model, and a new column color_description using a CASE statement to replace color names with ‘Light’, ‘Dark’, or ‘Neutral’ based on the vehicle’s color (‘White’ and ‘Silver’ as ‘Light’, ‘Black’ as ‘Dark’, others as ‘Neutral’).</p>
+<p>Q. Write a query to show the make, model, and a column body_style that converts ‘Sedan’ and ‘Coupe’ to ‘Passenger’, ‘SUV’ and ‘Truck’ to ‘Utility’, and ‘Electric’ remains the same.</p>
+<p>Q. Assuming all non-electric vehicles use Gasoline, create a query to display make, model, and a new column fuel_type where ‘Electric’ vehicles are listed as ‘Electric’ and others as ‘Gasoline’.</p>
+<p>Q. List make, model, and a column price_range indicating if the price is ‘Below 25k’, ‘25k to 50k’, or ‘Above 50k’.</p>
+<p>Q. Assuming a 5-year warranty from the year of manufacture, write a query to show make, model, and a column warranty_status as ‘In Warranty’ or ‘Out of Warranty’ based on the year.</p>
+<p>Q. Display the make, model, and a new column size_category classifying ‘Sedan’, ‘Coupe’, and ‘Electric’ as ‘Small’, ‘SUV’ as ‘Medium’, and ‘Truck’ as ‘Large’.</p>
+<p>Q. Create a query to show make, model, and a column popularity where ‘Black’ and ‘White’ vehicles are ‘Popular’, and others are ‘Standard’.</p>
+<p>Q. Display the make, model, and a new column year_class that classifies vehicles as ‘Vintage’ for years before 2000, ‘Modern’ for years between 2000 and 2015, and ‘Current’ for years after 2015.</p>
+<p>Q. Write a query to show make, model, and a column highlight that marks ‘Electric’ vehicles as ‘Eco-Friendly’ and others with ‘Conventional’.</p>
+<p>Q. Display make, model, and a new column luxury_brand where ‘BMW’, ‘Mercedes’, and ‘Audi’ are flagged as ‘Yes’, and other makes as ‘No’.</p>
+<p>Q. List make, model, and a column sporty where ‘Coupe’ and ‘Mustang’ models are marked as ‘Sporty’ and others as ‘Regular’.</p>
+<p>Q. Create a query to display make, model, and a new column origin classifying ‘Ford’ and ‘Chevrolet’ as ‘Domestic’ and others as ‘Imported’.</p>
+<p>Q. Assuming ‘Sedan’, ‘Coupe’, and ‘Electric’ types are ‘Fuel Efficient’, and others are not, write a query to show make, model, and a column fuel_efficiency as ‘Yes’ for efficient vehicles and ‘No’ for others.</p>
+<p>Q. Determine the suitability of the vehicle color for hot climates (‘Suitable’ for light colors, ‘Unsuitable’ for dark colors).</p>
+<p>Q. Classify vehicles as ‘Urban’ if they are smaller cars or ‘Rural’ if they are larger vehicles or trucks.</p>
+<p>Q. Categorize vehicles based on their model year as ‘Experienced’ for older models and ‘Novice’ for newer models.(year &lt; 2015 , ‘Experienced’)</p>
+<p>Q. Determine the primary purpose of the vehicle (‘Daily Use’, ‘Work’, ‘Leisure’) based on type.</p>
+<p>Q. Classify vehicles as ‘High Maintenance’ for luxury brands and older vehicles, and ‘Low Maintenance’ for newer, non-luxury brands.</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'> 
+    <a class='left-prev' id="prev-link" href="10.1_SQL_%28execution_order%29.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Order of execution of query</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="11_SQL_GROUP%20BY%20%20HAVING.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">GROUP BY Clause</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

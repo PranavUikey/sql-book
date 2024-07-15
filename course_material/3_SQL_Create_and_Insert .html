@@ -1,0 +1,632 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL - CREATE TABLE &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   SQL - CREATE TABLE
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   DATA TYPES
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integer-int">
+     1. Integer (INT):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decimal-numeric-decimal-numeric">
+     2. Decimal/numeric (DECIMAL/NUMERIC):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#varchar-char-nvarchar-varchar-char-nvarchar">
+     3. Varchar/char/nvarchar (VARCHAR/CHAR/NVARCHAR):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#date-date">
+     4. Date (DATE):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-time">
+     5. Time (TIME):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-timestamp-datetime-timestamp">
+     6. DateTime/TimeStamp (DATETIME/TIMESTAMP):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-bool">
+     7. Boolean (BOOL):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-to-do-after-table-creation">
+   What to do after table creation?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert-data-into-the-table">
+     Insert Data into the Table
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQL - CREATE TABLE</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   SQL - CREATE TABLE
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#data-types">
+   DATA TYPES
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#integer-int">
+     1. Integer (INT):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#decimal-numeric-decimal-numeric">
+     2. Decimal/numeric (DECIMAL/NUMERIC):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#varchar-char-nvarchar-varchar-char-nvarchar">
+     3. Varchar/char/nvarchar (VARCHAR/CHAR/NVARCHAR):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#date-date">
+     4. Date (DATE):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#time-time">
+     5. Time (TIME):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#datetime-timestamp-datetime-timestamp">
+     6. DateTime/TimeStamp (DATETIME/TIMESTAMP):
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#boolean-bool">
+     7. Boolean (BOOL):
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#what-to-do-after-table-creation">
+   What to do after table creation?
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#insert-data-into-the-table">
+     Insert Data into the Table
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#exercise">
+   Exercise
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#theory-questions">
+     Theory Questions :
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#coding-questions">
+     Coding Questions:
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="section" id="sql-create-table">
+<h1>SQL - CREATE TABLE<a class="headerlink" href="#sql-create-table" title="Permalink to this headline">¶</a></h1>
+<p>To create a table in SQL, you can use the CREATE TABLE statement followed by the table name and the list of columns and their data types. Here’s a general syntax for creating a table:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">column1</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">column2</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">column3</span><span class="w"> </span><span class="n">datatype</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="p">...</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>You can replace <code class="docutils literal notranslate"><span class="pre">table_name</span></code> with the desired name for your table. Inside the parentheses, you specify the columns of the table along with their respective data types. Each column is defined with a name and its data type, separated by a comma.</p>
+<p>For example, let’s create a simple table named “employees” with columns for employee ID, name, and salary:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">   </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">   </span><span class="n">name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">   </span><span class="n">salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the “employees” table has three columns: “employee_id” of integer data type, “name” of variable character data type with a maximum length of 50 characters, and “salary” of decimal data type with a precision of 10 digits and a scale of 2.</p>
+<p>Note: - The specific syntax and available data types may vary depending on the SQL database management system you are using.</p>
+</div>
+<div class="section" id="data-types">
+<h1>DATA TYPES<a class="headerlink" href="#data-types" title="Permalink to this headline">¶</a></h1>
+<p>In SQL, data types define the type of data that can be stored in a column of a table. Each column in a table is assigned a specific data type, which determines the kind of values that can be stored in that column. Here are some commonly used data types in SQL:</p>
+<div class="section" id="integer-int">
+<h2>1. Integer (INT):<a class="headerlink" href="#integer-int" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store whole numbers without decimal places.</p></li>
+<li><p>Example: 42, -10, 0.</p></li>
+</ul>
+</div>
+<div class="section" id="decimal-numeric-decimal-numeric">
+<h2>2. Decimal/numeric (DECIMAL/NUMERIC):<a class="headerlink" href="#decimal-numeric-decimal-numeric" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store decimal numbers with a specified precision and scale.</p></li>
+<li><p>Example: 3.14, -0.5, 123.456.</p></li>
+</ul>
+</div>
+<div class="section" id="varchar-char-nvarchar-varchar-char-nvarchar">
+<h2>3. Varchar/char/nvarchar (VARCHAR/CHAR/NVARCHAR):<a class="headerlink" href="#varchar-char-nvarchar-varchar-char-nvarchar" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store character strings of variable or fixed lengths.</p></li>
+<li><p>Example: ‘Hello’, ‘OpenAI’, ‘12345’.</p></li>
+</ul>
+</div>
+<div class="section" id="date-date">
+<h2>4. Date (DATE):<a class="headerlink" href="#date-date" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store dates without time information.</p></li>
+<li><p>Example: ‘2023-05-21’.</p></li>
+</ul>
+</div>
+<div class="section" id="time-time">
+<h2>5. Time (TIME):<a class="headerlink" href="#time-time" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store time values without date information.</p></li>
+<li><p>Example: ‘13:45:00’.</p></li>
+</ul>
+</div>
+<div class="section" id="datetime-timestamp-datetime-timestamp">
+<h2>6. DateTime/TimeStamp (DATETIME/TIMESTAMP):<a class="headerlink" href="#datetime-timestamp-datetime-timestamp" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store date and time values.</p></li>
+<li><p>Example: ‘2023-05-21 13:45:00’.</p></li>
+</ul>
+</div>
+<div class="section" id="boolean-bool">
+<h2>7. Boolean (BOOL):<a class="headerlink" href="#boolean-bool" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Used to store true or false values.</p></li>
+<li><p>Example: true, false.</p></li>
+</ul>
+<p>You can dive deeper into <strong>SQL DATA TYPES</strong> by using this link.</p>
+<p>These are just a few examples of commonly used data types in SQL. Different database management systems (DBMS) may support additional data types specific to their implementation. It’s important to choose the appropriate data type for each column to ensure accurate storage and retrieval of data in the database.</p>
+<p><img alt="table1_from_select.png" src="../_images/table1_from_select.png" /></p>
+</div>
+</div>
+<div class="section" id="what-to-do-after-table-creation">
+<h1>What to do after table creation?<a class="headerlink" href="#what-to-do-after-table-creation" title="Permalink to this headline">¶</a></h1>
+<p>After creating a table in SQL, there are several actions you can take depending on your specific requirements:</p>
+<ol class="simple">
+<li><p><strong>Insert Data</strong>: Use the <strong>INSERT</strong> statement to add rows of data into the table. You specify the column names and provide the corresponding values for each row.</p></li>
+<li><p><strong>Retrieve Data</strong>: Use the <strong>SELECT</strong> statement to query and retrieve data from the table. You can specify the columns you want to retrieve and apply conditions using the <strong>WHERE</strong> clause for filtering.</p></li>
+<li><p><strong>Update Data</strong>: Use the <strong>UPDATE</strong> statement to modify existing data in the table. You can specify the column(s) to be updated and provide new values. Conditions can be applied using the <strong>WHERE</strong> clause to update specific rows.</p></li>
+<li><p><strong>Delete Data</strong>: Use the <strong>DELETE</strong> statement to remove rows from the table. You can specify conditions using the <strong>WHERE</strong> clause to delete specific rows or delete all rows without conditions.</p></li>
+<li><p><strong>Modify Table Structure</strong>: If needed, you can alter the table structure using the <strong>ALTER TABLE</strong> statement. This allows you to add, modify, or delete columns, change data types, and perform other modifications.</p></li>
+<li><p><strong>Create Indexes</strong>: Indexes can be created on specific columns to improve query performance. Indexes help in faster data retrieval by creating a sorted structure of the indexed column(s).</p></li>
+</ol>
+<p>These are some common actions you can perform after creating a table in SQL. The specific operations you choose will depend on your data management and analysis requirements.</p>
+<div class="section" id="insert-data-into-the-table">
+<h2>Insert Data into the Table<a class="headerlink" href="#insert-data-into-the-table" title="Permalink to this headline">¶</a></h2>
+<p>Inserting data into a table is a fundamental operation in SQL that allows you to populate a table with new rows of data. This process is crucial for building a database’s content and making it useful for applications. The <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement is used for this purpose, and it enables you to add data to specific columns of a table. Let’s delve into the process of inserting data into a table in SQL.</p>
+<p>To insert data into a table, you need to specify the table name and the values you want to insert. The basic syntax of the <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement is as follows:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="k">table_name</span><span class="w"> </span><span class="p">(</span><span class="n">column1</span><span class="p">,</span><span class="w"> </span><span class="n">column2</span><span class="p">,</span><span class="w"> </span><span class="n">column3</span><span class="p">,</span><span class="w"> </span><span class="p">...)</span><span class="w"></span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="n">value1</span><span class="p">,</span><span class="w"> </span><span class="n">value2</span><span class="p">,</span><span class="w"> </span><span class="n">value3</span><span class="p">,</span><span class="w"> </span><span class="p">...);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Here’s a breakdown of the components:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code>: The command used to indicate that you want to insert data into a table.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">table_name</span></code>: The name of the table where you want to insert data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(column1,</span> <span class="pre">column2,</span> <span class="pre">column3,</span> <span class="pre">...)</span></code>: A comma-separated list of column names indicating which columns you want to insert data into.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VALUES</span></code>: The keyword used to indicate that you are providing values for the specified columns.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">(value1,</span> <span class="pre">value2,</span> <span class="pre">value3,</span> <span class="pre">...)</span></code>: A comma-separated list of values that correspond to the columns you specified.</p></li>
+</ul>
+<p>For instance, consider a table named “cities” with columns: city_id, name, pincode, state. You can insert a new city record like this:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="n">city_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pincode</span><span class="p">,</span><span class="w"> </span><span class="k">state</span><span class="p">)</span><span class="w"></span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mumbai&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Maharashtra&#39;</span><span class="p">),</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this example, the data for the “employee_id,” “first_name,” “last_name,” and “salary” columns is provided in the <code class="docutils literal notranslate"><span class="pre">VALUES</span></code> clause. The specified values correspond to the specified columns in the same order.</p>
+<p>You can also insert multiple rows of data in a single <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement by separating the sets of values with commas. Here’s an example inserting two cities records:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="n">city_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pincode</span><span class="p">,</span><span class="w"> </span><span class="k">state</span><span class="p">)</span><span class="w"></span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Mumbai&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400001</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Maharashtra&#39;</span><span class="p">),</span><span class="w"></span>
+<span class="w">       </span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chennai&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">400002</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Tamilnadu&#39;</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>It’s important to ensure that the data you insert adheres to the data types and constraints defined for the table columns. For example, if a column has a numeric data type, you should provide numeric values; if a column is defined as a date, use a valid date format.</p>
+<p>In some cases, you may want to insert data into only specific columns while leaving others empty. To achieve this, you can omit the column names for which you’re not providing data. For example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">INSERT</span><span class="w"> </span><span class="k">INTO</span><span class="w"> </span><span class="n">cities</span><span class="w"> </span><span class="p">(</span><span class="n">city_id</span><span class="p">,</span><span class="w"> </span><span class="n">name</span><span class="p">,</span><span class="w"> </span><span class="n">pincode</span><span class="p">)</span><span class="w"></span>
+<span class="k">VALUES</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Pune&#39;</span><span class="p">,</span><span class="w"> </span><span class="mi">411006</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Remember that inserting data into a table impacts the database’s integrity and structure, so it’s essential to double-check the data you’re inserting to ensure accuracy and consistency. Additionally, you can combine the <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement with other SQL statements to perform more complex operations, such as inserting data based on the result of a subquery or combining data from multiple tables before insertion.</p>
+<p>In conclusion, inserting data into a table in SQL using the <code class="docutils literal notranslate"><span class="pre">INSERT</span> <span class="pre">INTO</span></code> statement is a fundamental database operation. It allows you to populate tables with relevant data and is a critical step in building functional and meaningful databases for various applications.</p>
+<p><img alt="table2_from_select.png" src="../_images/table2_from_select.png" /></p>
+</div>
+</div>
+<div class="section" id="exercise">
+<h1>Exercise<a class="headerlink" href="#exercise" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="theory-questions">
+<h2>Theory Questions :<a class="headerlink" href="#theory-questions" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>What is the purpose of the SQL statement used to create a new table? Describe the components involved in creating a table.</p></li>
+<li><p>How do the SELECT and FROM clauses contribute to an SQL query? Explain their roles in retrieving data from a database.</p></li>
+<li><p>Define the term “data type” in SQL. Why is it crucial to choose appropriate data types when defining columns in a table?</p></li>
+<li><p>What is the significance of the INSERT INTO statement in SQL? Provide an overview of its structure and how it’s used to add new records.</p></li>
+<li><p>Elaborate on the concept of aliases in SQL. Give an example situation where employing aliases can enhance query readability.</p></li>
+</ol>
+</div>
+<div class="section" id="coding-questions">
+<h2>Coding Questions:<a class="headerlink" href="#coding-questions" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li><p>Create Table: Create a table named “students” with columns for student_id (integer), first_name (varchar), last_name (varchar), and age (integer).</p></li>
+</ol>
+<ol>
+<li><p>Insert Data: Insert two new records into the “students” table with the following details:</p>
+<p>• student_id = 1, first_name = ‘John’, last_name = ‘Doe’, age = 20</p>
+<p>• student_id = 2, first_name = ‘Jane’, last_name = ‘Smith’, age = 22</p>
+</li>
+</ol>
+<ol>
+<li><p>Insert Data with Multiple Rows: Insert three new records into the “students” table with the following details:</p>
+<p>• student_id = 3, first_name = ‘Michael’, last_name = ‘Johnson’, age  = 21</p>
+<p>• student_id = 4, first_name = ‘Emily’, last_name = ‘Williams’, age = 19</p>
+<p>• student_id = 5, first_name = ‘Daniel’, last_name = ‘Brown’, age = 23</p>
+</li>
+</ol>
+<!--  Hard Level: --><ol>
+<li><p>Create Table with Constraints: Create a new table named “employees” with columns for employee_id (integer), first_name (varchar), last_name (varchar), salary (decimal), and department (varchar). Multiple Inserts and Transaction: Insert five new records into the “employees” table with the following details:</p>
+<p>• employee_id = 101, first_name = ‘Alice’, last_name = ‘Johnson’, salary = 60000.00, department = ‘HR’</p>
+<p>• employee_id = 102, first_name = ‘Bob’, last_name = ‘Smith’, salary = 65000.00, department = ‘Finance’</p>
+<p>• employee_id = 103, first_name = ‘Carol’, last_name = ‘Williams’, salary = 70000.00, department = ‘IT’</p>
+<p>• employee_id = 104, first_name = ‘David’, last_name = ‘Brown’, salary = 75000.00, department = ‘Marketing’</p>
+<p>• employee_id = 105, first_name = ‘Eva’, last_name = ‘Miller’, salary = 80000.00, department = ‘Finance’</p>
+</li>
+</ol>
+<p>Perform all insertions within a transaction to ensure that all or none of the records are inserted.</p>
+<ol class="simple">
+<li><p>Create an SQL command to make a Products table with the following specifications:</p></li>
+</ol>
+<ul class="simple">
+<li><p>ProductID as an integer,</p></li>
+<li><p>ProductName as a string (varchar) of 255 characters maximum,</p></li>
+<li><p>Price as a decimal,</p></li>
+<li><p>QuantityInStock as an integer</p></li>
+</ul>
+<p>Insert values in it :</p>
+<p>(1, ‘Laptop’, 1200.00, 10),</p>
+<p>(2, ‘Smartphone’, 800.00, 20),</p>
+<p>(3, ‘Keyboard’, 100.00, 50).</p>
+<ol class="simple">
+<li><p>Create a table named Orders with the following columns:</p></li>
+</ol>
+<ul class="simple">
+<li><p>OrderID as an integer,</p></li>
+<li><p>OrderDate as a date,</p></li>
+<li><p>CustomerID as an integer,</p></li>
+</ul>
+<p>Insert values in it:</p>
+<p>(101, ‘2024-01-03’, 2001),</p>
+<p>(102, ‘2024-02-05’, 2002),</p>
+<p>(103, ‘2024-12-04’, 2003).</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./course_material"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>

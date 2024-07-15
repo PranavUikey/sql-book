@@ -1,0 +1,866 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SQL Constrains &#8212; Python Course</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet">
+  <link href="../_static/css/index.ff1ffe594081f20da1ef19478df9384b.css" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.be7d3bbb2ef33a8344ce.js">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d59cb220de22ca1c485ebbdc042f0030.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/logo_com.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Python Course</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search the docs ..." aria-label="Search the docs ..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/4_SQL_Select_Distinct.html">
+   SQL SELECT AND FROM :
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/5_SQL_where_clause.html">
+   SQL WHERE Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/7_SQL_CRUD_update%20%20delete%20%20replace.html">
+   CRUD Operations:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/8_SQL_Constraints.html">
+   SQL Constrains
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/9_SQL_Table_manipulations.html">
+   TABLE MANIPULATIONS in SQL
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/10.1_SQL_%28execution_order%29.html">
+   Order of execution of query
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/10_SQL_CASE%20Statement.html">
+   CASE STATEMENT
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/11_SQL_GROUP%20BY%20%20HAVING.html">
+   GROUP BY Clause
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/12_SQL_JOINS.html">
+   SQL JOINS
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/13_SQL_UNION.html">
+   SQL UNION
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/14_SQL_Subqueries.html">
+   Subqueries:
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../course_material/15_Conclusion.html">
+   Conclusion
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Theme by the <a href="https://ebp.jupyterbook.org">Executable Book Project</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show noprint">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav" aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   SQL Constrains
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-sql-constraints">
+     What are SQL CONSTRAINTS?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-sql-constrains-work">
+     How SQL CONSTRAINS work?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-use-sql-contraints">
+     How to use SQL CONTRAINTS?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tables-relations">
+   Tables Relations:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-to-one-relationship">
+     1) One-to-One Relationship:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-to-many-relationship">
+     2) One-to-Many Relationship:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#many-to-many-relationship">
+     3) Many-to-Many Relationship:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-questions">
+   Theory Questions:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   Questions:
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SQL Constrains</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   SQL Constrains
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#what-are-sql-constraints">
+     What are SQL CONSTRAINTS?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-sql-constrains-work">
+     How SQL CONSTRAINS work?
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#how-to-use-sql-contraints">
+     How to use SQL CONTRAINTS?
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#tables-relations">
+   Tables Relations:
+  </a>
+  <ul class="visible nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-to-one-relationship">
+     1) One-to-One Relationship:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#one-to-many-relationship">
+     2) One-to-Many Relationship:
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#many-to-many-relationship">
+     3) Many-to-Many Relationship:
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#theory-questions">
+   Theory Questions:
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#questions">
+   Questions:
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="sql-constrains">
+<h1>SQL Constrains<a class="headerlink" href="#sql-constrains" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-sql-constraints">
+<h2>What are SQL CONSTRAINTS?<a class="headerlink" href="#what-are-sql-constraints" title="Permalink to this headline">¶</a></h2>
+<p>SQL constraints are rules and conditions applied to columns or tables in a relational database to enforce data integrity and maintain the accuracy, consistency, and validity of the stored data. Constraints ensure that the data stored in the database meets certain predefined criteria, preventing the insertion of incorrect or inconsistent data. They play a crucial role in maintaining data quality and preventing data anomalies.</p>
+</div>
+<div class="section" id="how-sql-constrains-work">
+<h2>How SQL CONSTRAINS work?<a class="headerlink" href="#how-sql-constrains-work" title="Permalink to this headline">¶</a></h2>
+<p>Here’s how SQL constraints work in different scenarios:</p>
+<ol class="simple">
+<li><p><strong>Primary Key Constraint:</strong></p>
+<ul class="simple">
+<li><p>Ensures uniqueness and non-null values in a column designated as the primary key.</p></li>
+<li><p>When inserting a new row, the DBMS checks if the primary key value already exists in the table. If it does, the insertion is rejected.</p></li>
+<li><p>When updating the primary key value, the DBMS checks for uniqueness conflicts before allowing the update.</p></li>
+</ul>
+</li>
+<li><p><strong>Unique Constraint:</strong></p>
+<ul class="simple">
+<li><p>Ensures that values in a column are unique, except for null values.</p></li>
+<li><p>When inserting or updating data, the DBMS verifies if the new value conflicts with existing values in the column. If it does, the operation is rejected.</p></li>
+</ul>
+</li>
+<li><p><strong>Foreign Key Constraint or REFERENTIAL KEY:</strong></p>
+<ul class="simple">
+<li><p>Ensures referential integrity by enforcing relationships between tables.</p></li>
+<li><p>When inserting or updating data in a child table with a foreign key column, the DBMS checks if the referenced value exists in the parent table. If not, the operation is rejected.</p></li>
+<li><p>When deleting data from the parent table, the DBMS can enforce actions like cascading deletes, nullifying foreign key values, or rejecting the deletion based on the constraint definition.</p></li>
+</ul>
+</li>
+<li><p><strong>Not Null Constraint:</strong></p>
+<ul class="simple">
+<li><p>Prevents the insertion of null values into a column.</p></li>
+<li><p>When inserting data, the DBMS checks if a value is provided for the column. If not, the insertion is rejected.</p></li>
+</ul>
+</li>
+<li><p><strong>Check Constraint:</strong></p>
+<ul class="simple">
+<li><p>Validates data against a specified condition before insertion or update.</p></li>
+<li><p>When inserting or updating data, the DBMS evaluates the condition. If it evaluates to false, the operation is rejected.</p></li>
+</ul>
+</li>
+<li><p><strong>Default Constraint:</strong></p>
+<ul class="simple">
+<li><p>Sets a default value for a column when no value is provided during insertion.</p></li>
+<li><p>When inserting data without specifying a value for the column, the DBMS automatically uses the default value.</p></li>
+</ul>
+</li>
+</ol>
+<p>Constraints help maintain data integrity and consistency by preventing data anomalies such as duplication, inconsistency, and invalid references. They ensure that data adheres to the business rules and requirements set by the database design.</p>
+<p>Here’s an example of how constraints work:</p>
+<p>Consider two tables, “Customers” and “Orders.” The “Customers” table has a primary key constraint on the “CustomerID” column, ensuring that each customer has a unique identifier. The “Orders” table has a foreign key constraint that references the “CustomerID” column in the “Customers” table. This foreign key constraint ensures that an order can only be associated with a valid customer ID present in the “Customers” table.</p>
+<p>If someone tries to insert an order with a non-existent customer ID in the “Orders” table, the foreign key constraint will prevent the operation, maintaining the integrity of the data and preventing orphaned records.</p>
+<p>In summary, SQL constraints play a critical role in ensuring the accuracy, consistency, and reliability of data in a relational database. By enforcing rules on data entry and manipulation, constraints help create a trustworthy and well-structured database system.</p>
+</div>
+<div class="section" id="how-to-use-sql-contraints">
+<h2>How to use SQL CONTRAINTS?<a class="headerlink" href="#how-to-use-sql-contraints" title="Permalink to this headline">¶</a></h2>
+<p>Using SQL constraints involves adding rules to columns or tables during table creation or altering an existing table. These rules enforce data integrity and ensure that the stored data meets certain criteria. Here’s how to use common SQL constraints:</p>
+<ol>
+<li><p><strong>Primary Key Constraint:</strong></p>
+<ul>
+<li><p>Ensures uniqueness and non-null values in a column.</p></li>
+<li><p>Applied to a single column or a combination of columns.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Age</span><span class="w"> </span><span class="nb">INT</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Unique Constraint:</strong></p>
+<ul>
+<li><p>Ensures uniqueness of values in a column, except for null values.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">EmployeeID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">EmployeeCode</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Department</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Foreign Key Constraint:</strong></p>
+<ul>
+<li><p>Establishes relationships between tables and enforces referential integrity.</p></li>
+<li><p>Ensures values in a column match values in another table’s primary key column.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Orders</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">CustomerID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderDate</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">CustomerID</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Customers</span><span class="p">(</span><span class="n">CustomerID</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Not Null Constraint:</strong></p>
+<ul>
+<li><p>Ensures a column cannot contain null values.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">ProductID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ProductName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Check Constraint:</strong></p>
+<ul>
+<li><p>Validates values before insertion or update based on a specified condition.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">EmployeeID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">FirstName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">LastName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Age</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Gender</span><span class="w"> </span><span class="nb">CHAR</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Salary</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">Age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="w"> </span><span class="k">AND</span><span class="w"> </span><span class="n">Salary</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="mi">0</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p><strong>Default Constraint:</strong></p>
+<ul>
+<li><p>Sets a default value for a column if no value is provided during insertion.</p></li>
+<li><p>Example:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Orders</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">OrderDate</span><span class="w"> </span><span class="nb">DATE</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">CURRENT_DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">TotalAmount</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>To apply constraints to an existing table, use the <code class="docutils literal notranslate"><span class="pre">ALTER</span> <span class="pre">TABLE</span></code> statement:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">ALTER</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Employees</span><span class="w"></span>
+<span class="k">ADD</span><span class="w"> </span><span class="k">CONSTRAINT</span><span class="w"> </span><span class="n">CHK_Age</span><span class="w"> </span><span class="k">CHECK</span><span class="w"> </span><span class="p">(</span><span class="n">Age</span><span class="w"> </span><span class="o">&gt;=</span><span class="w"> </span><span class="mi">18</span><span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Remember that constraints play a vital role in data integrity and consistency. They prevent invalid or inconsistent data from being entered into the database. When designing a database schema, carefully consider which constraints are necessary to ensure the accuracy and reliability of the stored data.</p>
+<p>(We will explore ALTER TABLE commands in the next chapter.)</p>
+<p><strong>Various types of key constrains in SQL</strong></p>
+<p>In SQL, keys are crucial for identifying and establishing relationships between records in a relational database. There are several types of keys that serve different purposes in maintaining data integrity and structure. Let’s explore each key type in detail with examples:</p>
+<p>1.<strong>Primary Key:</strong></p>
+<ul class="simple">
+<li><p>A primary key uniquely identifies each record in a table. It ensures that no two records have the same key value.</p></li>
+<li><p>Each table can have only one primary key, and it cannot contain NULL values.</p></li>
+<li><p>Example: Consider a “students” table with a primary key “student_id.”</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">students</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>2.<strong>Foreign Key:</strong></p>
+<p>-A foreign key establishes a relationship between two tables by referencing the primary key of another table.
+-It ensures referential integrity, maintaining the connection between related data.
+-Example: Consider an “orders” table with a foreign key “customer_id” referencing the “customers” table.</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">orders</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">customers</span><span class="p">(</span><span class="n">customer_id</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>3.<strong>Unique Key:</strong></p>
+<ul class="simple">
+<li><p>A unique key ensures that the values in the key column(s) are unique across the table, similar to a primary key.</p></li>
+<li><p>Unlike a primary key, a unique key can allow NULL values, but if a value is present, it must be unique.</p></li>
+<li><p>Example: Adding a unique key constraint on the “email” column of a “users” table.</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">users</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">user_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>4.<strong>Candidate Key:</strong></p>
+<ul class="simple">
+<li><p>A candidate key is a column or set of columns that could potentially be a primary key.</p></li>
+<li><p>It satisfies the uniqueness requirement and does not contain NULL values.</p></li>
+<li><p>Example: Consider a “departments” table with multiple candidate keys such as “dept_id” and “dept_name.”</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">departments</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">dept_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">dept_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">dept_id</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">UNIQUE</span><span class="w"> </span><span class="p">(</span><span class="n">dept_name</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>5.<strong>Composite Key:</strong></p>
+<ul class="simple">
+<li><p>A composite key is a key composed of two or more columns, used together to uniquely identify records.</p></li>
+<li><p>It is often employed when a single column cannot uniquely identify records.</p></li>
+<li><p>Example: A “student_courses” table with a composite key using both “student_id” and “course_id.”</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">student_courses</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">course_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">course_id</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>6.<strong>Super Key:</strong></p>
+<ul class="simple">
+<li><p>A super key is a set of one or more columns that can uniquely identify records in a table.</p></li>
+<li><p>It may contain additional columns beyond what is necessary for uniqueness.</p></li>
+<li><p>Example: In an “employees” table, a super key could include “employee_id,” “first_name,” “last_name,” and “email.”</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">employees</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">employee_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="p">...</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>7.<strong>Surrogate Key:</strong></p>
+<ul class="simple">
+<li><p>A surrogate key is an automatically generated unique identifier used as the primary key in a database table.</p></li>
+<li><p>It serves as a substitute for a natural key and doesn’t carry any real-world meaning.</p></li>
+<li><p>Typically, surrogate keys are auto-incremented integers that are assigned by the database system.</p></li>
+<li><p>Example: Consider a “Students” table where each student needs a unique identifier. Instead of using personal information like a student’s name or Social Security Number as the primary key, a surrogate key like an auto-incremented ID is used:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="n">AUTO_INCREMENT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">first_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">last_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">birthdate</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>8.<strong>Natural Key:</strong></p>
+<ul class="simple">
+<li><p>A natural key is a primary key composed of columns that have a direct and meaningful relationship to the data they represent.</p></li>
+<li><p>These columns already exist in the real world and can be used to uniquely identify records without the need for artificial identifiers.</p></li>
+<li><p>Example: In a “Users” table, using the email address as a natural key:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Users</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">registration_date</span><span class="w"> </span><span class="nb">DATE</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>9.<strong>Alternate Key:</strong></p>
+<ul class="simple">
+<li><p>An alternate key is a candidate key that is not selected as the primary key for a table.</p></li>
+<li><p>It provides an alternative way to uniquely identify records.</p></li>
+<li><p>While not serving as the primary identifier, alternate keys are still important for data integrity and indexing.</p></li>
+<li><p>Example: In a “Products” table, both the product ID and the UPC (Universal Product Code) could be alternate keys:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Products</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">product_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">upc</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">product_name</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">price</span><span class="w"> </span><span class="nb">DECIMAL</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>10.<strong>Foreign Superscript Key:</strong></p>
+<ul class="simple">
+<li><p>A foreign superscript key is a foreign key that references a super key in another table.</p></li>
+<li><p>In essence, it refers to a set of columns that could potentially serve as a primary key.</p></li>
+<li><p>Example: Suppose you have an “Orders” table where the combination of customer ID and order date forms a super key. The foreign superscript key references this super key:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Orders</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">order_id</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">customer_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">order_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* Other columns */</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Customers</span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span><span class="w"> </span><span class="n">order_date</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>11.<strong>Compound Key:</strong></p>
+<ul class="simple">
+<li><p>A compound key is a key that consists of two or more columns working together to uniquely identify records.</p></li>
+<li><p>It can be a primary key, unique key, or foreign key. The combination of these columns ensures uniqueness.</p></li>
+<li><p>Example: A “CourseEnrollments” table uses a combination of student ID and course ID as a compound primary key to uniquely identify enrollments:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">CourseEnrollments</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">student_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">course_id</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">enrollment_date</span><span class="w"> </span><span class="nb">DATE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="cm">/* Other columns */</span><span class="w"></span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">student_id</span><span class="p">,</span><span class="w"> </span><span class="n">course_id</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>Keys play a vital role in maintaining data consistency, integrity, and relationships within a relational database. Understanding the types of keys and their appropriate usage is essential for designing well-structured and efficient databases.</p>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="tables-relations">
+<h1>Tables Relations:<a class="headerlink" href="#tables-relations" title="Permalink to this headline">¶</a></h1>
+<p>SQL constraints are used to specify rules for data in a database. Here’s a brief overview of how they relate to one-to-one, one-to-many, and many-to-many relationships:</p>
+<div class="section" id="one-to-one-relationship">
+<h2>1) One-to-One Relationship:<a class="headerlink" href="#one-to-one-relationship" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>In a one-to-one database relationship, each record in Table A corresponds to no more than one record in Table B, and vice versa. This means that for any given record in Table A, there’s either one matching record in Table B or none at all.</p></li>
+<li><p>To establish a one-to-one relationship between two tables in a database, the primary key from Table B (which cannot have records without a corresponding match) is utilized as a foreign key in Table A.</p></li>
+<li><p>This configuration permits the presence of records in Table A that do not have a matching entry in Table B, known as “orphan” records.</p></li>
+<li><p>Meanwhile, it ensures that each entry in Table B is exclusively linked to a single record in Table A.</p></li>
+<li><p>Such a structure is typical in situations where two distinct types of entities need to be closely and uniquely connected.</p></li>
+</ul>
+<p><img alt="image%20from%205%20constr%28one-to-one_relationship_function%29.png" src="images/attachment:image%20from%205%20constr%28one-to-one_relationship_function%29.png" /></p>
+<p>For example:</p>
+<p>In a one-to-one relationship, each row in one table is linked to no more than one row in another table. Consider tables Users and UserProfiles.</p>
+<ul class="simple">
+<li><p>Users Table:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Users</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">UserID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Username</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Email</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>UserProfiles Table:</p></li>
+</ul>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">UserProfiles</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">ProfileID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">UserID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">Address</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">255</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">Phone</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">15</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Users</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="one-to-many-relationship">
+<h2>2) One-to-Many Relationship:<a class="headerlink" href="#one-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<p><img alt="table%20from%205const%28one-to-many%29.webp" src="images/attachment:table%20from%205const%28one-to-many%29.webp" /></p>
+<ul class="simple">
+<li><p>In a one-to-many relationship within a database, a single record from Table A is linked to one or multiple records in Table B.</p></li>
+<li><p>Importantly, each record in Table B is restricted to being associated with only one record from Table A.</p></li>
+<li><p>To implement this relationship, Table A’s primary key, identifying the ‘one’ side of the relationship, is used as a foreign key in Table B, which represents the ‘many’ side.</p></li>
+<li><p>This structure allows for multiple entries in Table B to be associated with a single entry in Table A, while maintaining a unique link back to Table A for each record in Table B.</p></li>
+<li><p>This relationship is common in scenarios where a singular entity (represented in Table A) has various linked attributes or entries (represented in Table B).</p></li>
+</ul>
+<p>A simple example of a one-to-many relationship is the relationship between a teacher and students:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Creating the Teachers table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Teachers</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">TeacherID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">TeacherName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="c1">-- Creating the Students table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="n">TeacherID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">TeacherID</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Teachers</span><span class="p">(</span><span class="n">TeacherID</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Table A: Teachers :- Each teacher is represented by a unique record (like a TeacherID).</p></li>
+<li><p>Table B: Students :- Each student has a record with a StudentID and a TeacherID.</p></li>
+</ul>
+<p>In this example, one teacher (from Table A) can have multiple students (in Table B), but each student is associated with only one teacher. The TeacherID in the Students table is a foreign key that references the primary key in the Teachers table. This relationship shows that while a single teacher can teach many students, each student has just one teacher assigned.</p>
+<p>Teachers table has a primary key TeacherID.
+Students table has its own primary key StudentID, and a foreign key TeacherID. This foreign key links each student to a specific teacher, illustrating the one-to-many relationship: one teacher can have many students, but each student has only one teacher.</p>
+</div>
+<div class="section" id="many-to-many-relationship">
+<h2>3) Many-to-Many Relationship:<a class="headerlink" href="#many-to-many-relationship" title="Permalink to this headline">¶</a></h2>
+<p><img alt="image%20from%205%20contr%28many-to-many%29.jpg" src="images/attachment:image%20from%205%20contr%28many-to-many%29.jpg" /></p>
+<ul class="simple">
+<li><p>In a many-to-many relationship, each record in Table A can be linked to multiple records in Table B, and similarly, each record in Table B can be linked to multiple records in Table A.</p></li>
+<li><p>To facilitate this type of relationship, a third table, often termed a junction or associative table, is required.</p></li>
+<li><p>This table, let’s call it “LinkTable,” includes the primary keys from both Table A and Table B. These keys serve as foreign keys within “LinkTable” and work together to establish the many-to-many connections between the records in Table A and Table B.</p></li>
+<li><p>This structure is essential in scenarios where entities in both tables need to have multiple links to entities in the other table.</p></li>
+</ul>
+<p>here’s how the SQL queries would look for creating the tables in the Students-Classes example with a many-to-many relationship:</p>
+<div class="highlight-sql notranslate"><div class="highlight"><pre><span></span><span class="c1">-- Creating the Students table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Students</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="c1">-- Creating the Classes table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">Classes</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">ClassID</span><span class="w"> </span><span class="nb">INT</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ClassName</span><span class="w"> </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+
+<span class="c1">-- Creating the StudentClasses link table</span>
+<span class="k">CREATE</span><span class="w"> </span><span class="k">TABLE</span><span class="w"> </span><span class="n">StudentClasses</span><span class="w"> </span><span class="p">(</span><span class="w"></span>
+<span class="w">    </span><span class="n">StudentID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="n">ClassID</span><span class="w"> </span><span class="nb">INT</span><span class="p">,</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">StudentID</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Students</span><span class="p">(</span><span class="n">StudentID</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">FOREIGN</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">ClassID</span><span class="p">)</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">Classes</span><span class="p">(</span><span class="n">ClassID</span><span class="p">),</span><span class="w"></span>
+<span class="w">    </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="w"> </span><span class="p">(</span><span class="n">StudentID</span><span class="p">,</span><span class="w"> </span><span class="n">ClassID</span><span class="p">)</span><span class="w"></span>
+<span class="p">);</span><span class="w"></span>
+</pre></div>
+</div>
+<p>In this structure:</p>
+<ul class="simple">
+<li><p>Students and Classes tables each have their own primary key (StudentID and ClassID respectively).</p></li>
+<li><p>StudentClasses is the link table with two foreign keys: StudentID and ClassID. These foreign keys reference the primary keys in the Students and Classes tables.</p></li>
+<li><p>The composite primary key of the StudentClasses table is a combination of StudentID and ClassID, which together identify each unique student-class enrollment.</p></li>
+</ul>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="theory-questions">
+<h1>Theory Questions:<a class="headerlink" href="#theory-questions" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><p>How do SQL constraints contribute to data integrity and consistency?</p></li>
+<li><p>Differentiate between the Primary Key constraint and the Unique constraint.</p></li>
+<li><p>How does a Foreign Key constraint enforce referential integrity?</p></li>
+<li><p>What happens when you try to insert a NULL value into a column with a Not Null constraint?</p></li>
+<li><p>Explain the role of the Default constraint during data insertion.</p></li>
+<li><p>Give an example scenario where a Check constraint might be useful.</p></li>
+<li><p>What is the main difference between a Primary Key and a Candidate Key?</p></li>
+<li><p>Describe the use case for a Composite Key and provide an example.</p></li>
+<li><p>Explain the difference between a Super Key and a Candidate Key.</p></li>
+<li><p>How does a Surrogate Key differ from a Natural Key? Why might one choose to use a Surrogate Key?</p></li>
+<li><p>In which scenarios might you use an Alternate Key?</p></li>
+<li><p>Describe the significance of a Foreign Superscript Key and provide a hypothetical use case.</p></li>
+<li><p>What differentiates a Compound Key from other types of keys in SQL?</p></li>
+<li><p>How can constraints impact the performance of database operations?</p></li>
+<li><p>What potential challenges might arise when working with foreign key constraints in a distributed database system?</p></li>
+<li><p>Describe a scenario where a Composite Key might be more appropriate than a single-column primary key.</p></li>
+<li><p>Imagine you’re creating a registration system. How might you ensure that each user’s email address is both unique and non-empty?</p></li>
+<li><p>Explain the difference between a one-to-many and a many-to-many relationship in a database.</p></li>
+<li><p>Why are foreign keys used in database tables, and what role do they play in table relationships?</p></li>
+<li><p>How does a junction table facilitate a many-to-many relationship between two tables? Provide an example scenario.</p></li>
+<li><p>Describe the concept of referential integrity and how it is maintained in database relationships.</p></li>
+<li><p>How would you normalize a database schema to reduce data redundancy? Explain with the help of table relationships.</p></li>
+<li><p>What are the potential issues of not properly defining relationships between tables in a database?</p></li>
+<li><p>How can you enforce a one-to-one relationship between two tables in a relational database?</p></li>
+<li><p>In the context of database relationships, what are cascade update and cascade delete, and when would you use them?</p></li>
+<li><p>Explain how indexing works in the context of database relationships and its impact on query performance.</p></li>
+</ol>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="questions">
+<h1>Questions:<a class="headerlink" href="#questions" title="Permalink to this headline">¶</a></h1>
+<p>Q. Create ‘Users’ Table with Primary Key.(column names: UserId,UserName,Email)</p>
+<p>Q. Add Unique Constraint to ‘Employees’.(column names: EmployeeId,EmployeeCode,Name)</p>
+<p>Q. Create ‘Products’ Table with Foreign Key.(column names: ProductID,Name,CategoryID)</p>
+<p>Q. Implement Check Constraint in ‘Movies’.(column names: MovieID,Title,Rating)</p>
+<p>Q. Add Not Null Constraint to ‘Books’.(column names: BookID,Title,Author)</p>
+<p>Q. Create ‘Vehicles’ Table with Default Value. (column names: VehicleID,Model,Status)</p>
+<p>Q. Use Composite Primary Key in ‘OrderDetails’. (column names: OrderID, ProductID,Quantity)</p>
+<p>Q. Unique Constraint on Multiple Columns in ‘Reservations’. (column names: ReservationID,RoomNumber,Date)</p>
+<p>Q. Foreign Key Constraint with Cascading Delete in ‘EmployeeProjects’. (column names: EmployeeID,ProjectID)</p>
+<p>Q. Create ‘Members’ Table with Age Check Constraint. (column names: MemberID,Name,Age)</p>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./images"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            
+                <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+</div>
+            
+        </div>
+    </div>
+    <footer class="footer">
+  <p>
+    
+      By aiadventures<br/>
+    
+        &copy; Copyright 2021.<br/>
+  </p>
+</footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.be7d3bbb2ef33a8344ce.js"></script>
+
+  </body>
+</html>
